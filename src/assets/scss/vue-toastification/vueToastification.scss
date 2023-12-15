@@ -1,0 +1,26 @@
+// 由於下方引用的兩個檔案內的每個變數均有寫'!default', 這表示如果開發者已經有自定義的變數內容, 則以自定義的內容為主; 否則, 如果沒有自定義的內容, 則使用引用檔案中'!default'標籤的內容作為預設值
+$vt-color-success: $orange;
+$vt-text-color-success: $white;
+
+// Import the regular Vue Toastification stylesheets (or create your own)
+@import "vue-toastification/src/scss/_variables";
+@import "vue-toastification/src/scss/_toast";
+
+// 因為在上方引用的'_toast'檔案內, 其並沒有使用'!default'標籤, 且需要先透過上方檔案引用之後, 讓彙整後的scss認得.#{$vt-namespace}是什麼之後, 再自行撰寫想要修改的樣式如下, 這樣就能改動其樣式
+// 當使用電腦瀏覽網站時, 令toast往下移動的距離與toast的最小寬度, 詳細官方樣式表可參考: https://github.com/Maronato/vue-toastification/blob/main/src/scss/_toast.scss
+.#{$vt-namespace}__toast {
+  top: 50px;
+  font-weight: bold;
+  min-width: 240px;
+}
+
+  // 當使用手機瀏覽網站時, 令toast靠右對齊並且設定往下移動的距離與toast的寬度, 詳細官方樣式表可參考: https://github.com/Maronato/vue-toastification/blob/main/src/scss/_toastContainer.scss
+  .#{$vt-namespace}__container {
+    @media #{$vt-mobile} {
+    align-items: flex-end;
+    .#{$vt-namespace}__toast {
+      top: 100px;
+      width: 50%;
+    }
+  }
+}

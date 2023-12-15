@@ -1,0 +1,96 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  color: $brown;
+  padding: 50px 42px;
+  flex-wrap: wrap;
+
+  .about-brand{
+    display: flex;
+    justify-content: space-between;
+    color: $brown;
+
+    @include tablet{
+      flex-direction: column;
+    }
+
+    .about, .contact {
+      max-width: 550px;
+      line-height: 1.5rem;
+      padding-bottom: 30px;
+
+      @include iPad {
+        padding:0px 30px 30px 0px;
+      }
+
+      @include tablet {
+        padding:0px 0px 30px 0px;
+      }
+
+      .title {
+        font-size: $h2-font-size;
+        padding-bottom: 1rem;
+      }
+    }
+  
+    .brand-social {
+      .title {
+        font-weight: bold;
+    
+        img {
+          @include tablet {
+            max-width: 50%;
+          }
+        }
+      }
+      .social-media {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-top: 22px;
+    
+        @include tablet {
+          justify-content:flex-start;
+        }
+    
+        li {
+          a {
+            .google-plus, .twitter, .facebook {
+              border-radius: 4px;
+              margin: 0px 6px;
+            }
+        
+            .google-plus {
+              color: $google-red;
+              font-size: $h1-font-size;
+            }
+        
+            .twitter {
+              background-color: $twitter-blue;
+              padding: 6px;
+              color: $white;
+              font-size: $h3-font-size;
+            }
+        
+            .facebook {
+              color: $facebook-blue;
+              font-size: $h1-font-size;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .declaration {
+    padding-top: 20px;
+    text-align: center;
+    font-weight: bold;
+
+    a {
+      padding: 0px 10px;
+      text-decoration: none;
+      color: $deep-gray;
+    }
+  }
+}

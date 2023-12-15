@@ -1,0 +1,198 @@
+.booking-banner {
+  background-image: url('/src/assets/images/booking/banner_desktop.webp');
+  // 務必要設定高度才能讓圖片能夠顯示出來; 且因為只設定高度而不設定寬度, 故不會讓網頁出現x軸
+  height: 260px;
+  // 讓圖片水平及垂直置中
+  background-position: center center;
+  background-size: cover;
+
+  @include tablet {
+    background-image: url('/src/assets/images/booking/banner_mobile.webp');
+    background-repeat: no-repeat;
+    background-color: $black;
+  }
+}
+
+.booking {
+  display: flex;
+  flex-direction: column;
+  color: $brown;
+  padding-top: 60px;
+  background-color: $main-bg;
+
+  .title {
+    font-size: $h2-font-size;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 40px;
+  }
+
+  .booking-info {
+    display: flex;
+    justify-content: center;
+    padding: 0px 20px;
+
+    @include tablet {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .img-container {
+
+      @include tablet {
+        padding-bottom: 30px;
+      }
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+
+    .booking-form {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      border: $middle-gray;
+      background-color: $linen;
+      box-shadow: 3px 3px 4px 5px rgba(0, 0, 0, 0.16);
+      font-size: $h4-font-size;
+      font-weight: bold;
+      margin-left: 20px;
+      padding: 15px;
+
+      @include iPad {
+        width: 60%;
+      }
+
+      @include tablet {
+        width: 90%;
+        margin-left: 0px;
+      }
+
+      .form-item {
+        padding-bottom: 20px;
+
+        .input-field {
+          width: 100%;
+          display: block;
+          font-size: $h4-font-size;
+          margin-top: 5px;
+          padding: 5px;
+          border: 1px solid $silver;
+        }
+      }
+
+      .reservedTime {
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 20px;
+
+        .form-timeOptions {
+          padding: 5px;
+          margin: 2px;
+          width: calc(25% - 10px);
+
+          @include iPad {
+            width: calc(33% - 10px);
+          }
+        }
+
+        //對radio button調整大小, 使其更好點擊
+        input[type="radio"] {
+          cursor: pointer;
+          width: 20px; 
+          height: 20px;
+        }
+      }
+
+      .validation {
+        // 設定固定高度, 讓畫面左方圖片不會隨著驗證訊息的出現或消失而變動其大小
+        height: 20px;
+        padding: 10px 0px;
+        font-size: $h6-font-size;
+        color: $orange;
+      }
+
+      .buttons {
+        text-align: right;
+
+        @include mobile {
+          padding: 30px 0px 50px 0px;
+        }
+
+        input {
+          font-size: $h4-font-size;
+          border-radius: 3px;
+          border: 0px;
+          color: $white;
+          font-weight: bold;
+          padding: 10px 20px;
+        }
+      }
+
+      .button-cancel {
+        background-color: $deep-gray;
+        margin-right: 10px;
+      }
+
+      .button-submit {
+        background-color: $orange;
+      }
+
+      .button-cancel:hover,
+      .button-submit:hover {
+        background-color: $brown;
+        cursor: pointer;
+      }
+
+      .button-cancel:active,
+      .button-submit:active {
+        background-color: $silver;
+        color: $brown;
+      }
+
+      .button-cancel:disabled,
+      .button-submit:disabled {
+        color: $silver;
+        background-color: $linen;
+        border: 2px solid $silver;
+
+        &:hover,
+        &:active {
+          cursor: not-allowed;
+          color: $silver;
+          background-color: $linen;
+          border: 2px solid $silver;
+        }
+      }
+    }
+  }
+
+  .notice {
+    background-color: $linen;
+    margin: 60px 0px 40px 0px;
+    padding: 60px 100px;
+
+    @include tablet {
+      padding: 60px 40px;
+    }
+
+    ol {
+      font-size: $h3-font-size;
+      list-style: decimal;
+
+      li {
+        line-height: 1.5rem;
+        padding-bottom: 20px;
+
+        a {
+          text-decoration: none;
+          color: $brown;
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,157 @@
+.login-banner {
+  background-image: url(/src/assets/images/login/banner_desktop.webp);
+  // 務必要設定高度才能讓圖片能夠顯示出來; 且因為只設定高度而不設定寬度, 故不會讓網頁出現x軸
+  height: 260px;
+  // 讓圖片水平及垂直置中
+  background-position: center center;
+  background-size: cover;
+
+  @include tablet {
+    background-image: url(/src/assets/images/login/banner_mobile.webp);
+    background-repeat: no-repeat;
+    background-color: $black;
+  }
+}
+
+.login {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  color: $brown;
+  padding: 20px;
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .logo {
+      padding: 50px 0px 5px 0px;
+    }
+
+    .slogan {
+      padding-bottom: 35px;
+      font-size: $h3-font-size;
+      font-weight: bold;
+    }
+  }
+
+  .login-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: $middle-gray;
+    border: $middle-gray;
+    border-top: 4px solid $orange;
+    box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.16);
+
+    .title {
+      font-size: $h4-font-size;
+      font-weight: bold;
+      padding: 11px 0px 16px 0px;
+    }
+
+    .table {
+      padding: 0px 15px 15px 0px;
+
+      @include tablet {
+        width: 100%;
+        padding: 15px;
+      }
+
+      .email span,
+      .password span {
+        display: block;
+        padding-bottom: 3px;
+      }
+
+      .email input,
+      .password input {
+        width: 100%;
+        font-size: $h3-font-size;
+        border-radius: 3px;
+        border: 1px solid $gray;
+      }
+
+      .email {
+
+        // 使用相對定位與絕對定位, 將icon挪至input欄位內
+        .input-email {
+          position: relative;
+
+          .mail-icon {
+            position: absolute;
+            top: 17%;
+            left: 2%;
+            color: rgba(61, 17, 0, 0.50);
+          }
+
+          input {
+            margin-bottom: 15px;
+            padding-left: 10%;
+          }
+        }
+
+      }
+
+      .password {
+        .input-password {
+          position: relative;
+
+          .lock-icon {
+            position: absolute;
+            color: rgba(61, 17, 0, 0.50);
+          }
+
+          .lock-icon {
+            top: 17%;
+            left: 2%;
+          }
+        }
+
+        input {
+          margin-bottom: 15px;
+          padding-left: 10%;
+        }
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .button-cancel,
+        .button-login {
+          font-size: $h5-font-size;
+          color: $white;
+          border-radius: 3px;
+          border: none;
+          padding: 6px 28px;
+          width: 48%;
+        }
+
+        .button-cancel {
+          display: block;
+          text-align: center;
+          background-color: $gray;
+          text-decoration: none;
+        }
+
+        .button-login {
+          background-color: $orange;
+        }
+
+        .button-cancel:hover, .button-login:hover {
+          background-color: $brown;
+          cursor: pointer;
+        }
+
+        .button-cancel:active, .button-login:active {
+          background-color: $white;
+          color: $brown;
+        }
+      }
+    }
+  }
+}

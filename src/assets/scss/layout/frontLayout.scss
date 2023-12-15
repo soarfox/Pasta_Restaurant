@@ -1,0 +1,19 @@
+body {
+  font-family: 'Microsoft JhengHei', sans-serif;
+}
+
+.wrap {
+  max-width: 1024px;
+  margin: 0 auto;
+  background-color: $main-bg;
+
+  .go-top {
+    position: fixed;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    right: 20px;
+    bottom: 20px;
+    font-size: $h1-font-size;
+  }
+}

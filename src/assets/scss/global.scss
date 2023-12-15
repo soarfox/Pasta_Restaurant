@@ -1,0 +1,16 @@
+@import "@/assets/scss/reset";
+@import "@/assets/scss/variables";
+@import "@/assets/scss/mixins/grid";
+@import "@/assets/scss/layout/navbar";
+@import "@/assets/scss/layout/footer";
+@import "@/assets/scss/pages/index";
+@import "@/assets/scss/pages/aboutUs";
+@import "@/assets/scss/pages/booking";
+@import "@/assets/scss/pages/detailedProduct";
+@import "@/assets/scss/pages/login";
+@import "@/assets/scss/pages/product";
+@import "@/assets/scss/pages/register";
+@import "@/assets/scss/pages/checkOrder";
+@import "@/assets/scss/pages/payment";
+@import "@/assets/scss/pages/paymentCompleted";
+@import "@/assets/scss/vue-toastification/vueToastification";

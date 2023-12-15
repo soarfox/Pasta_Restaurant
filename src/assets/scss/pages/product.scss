@@ -1,0 +1,342 @@
+.product-banner {
+  background-image: url('/src/assets/images/product/banner_desktop.webp');
+  // 務必要設定高度才能讓圖片能夠顯示出來; 且因為只設定高度而不設定寬度, 故不會讓網頁出現x軸
+  height: 260px;
+  // 讓圖片水平及垂直置中
+  background-position: center center;
+  background-size: cover;
+
+  @include tablet {
+    background-image: url('/src/assets/images/product/banner_mobile.webp');
+    background-repeat: no-repeat;
+    background-color: $black;
+  }
+}
+
+.cart {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  @include tablet {
+    flex-direction: column;
+  }
+
+  .categories {
+    width: 25%;
+    padding: 48px 20px 0px 42px;
+
+    @include tablet {
+      width: 100%;
+      padding: 52px 0px 16px 18px;
+    }
+
+
+    .text {
+      font-size: $h3-font-size;
+      padding-bottom: 16px;
+      color: $brown;
+
+      .trophy {
+        font-size: $h2-font-size;
+        padding-right: 5px;
+        // color: $brown;
+      }
+    }
+
+    .meal-menu {
+      display: flex;
+      flex-direction: column;
+
+      li {
+        border-bottom: 1px solid $brown;
+
+        a {
+          color: $brown;
+          display: block;
+          padding: 10px 16px;
+          text-decoration: none;
+
+          @include tablet {
+            font-size: $h2-font-size;
+          }
+        }
+
+        a:hover {
+          background-color: $orange;
+          color: $white;
+        }
+      }
+
+      // 為左側商品分類中, 被選中的分類名稱加上樣式
+      .selected {
+        a {
+          background-color: $brown;
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .meal-info {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px;
+
+    @include tablet {
+      width: 100%;
+      padding: 33px 10px 30px 10px;
+    }
+
+    .meal-cards {
+      display: flex;
+      flex-wrap: wrap;
+
+      li {
+        width: 30.3333%;
+        margin: 20px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.3);
+        position: relative;
+
+        @include iPad () {
+          width: 44%;
+        }
+
+        @include tablet {
+          width: 100%;
+        }
+
+        // 位於卡片右上角的緞帶效果
+        // .ribbon-wrapper {
+        //   width: 108px;
+        //   height: 108px;
+        //   overflow: hidden;
+        //   position: absolute;
+        //   /*  改變緞帶所在的位置  */
+        //   top: -6px;
+        //   right: -6px;
+        //   background-color: aquamarine;
+
+        //   // 緞帶內的文字
+        //   .tag {
+        //     font-weight: bold;
+        //     line-height: 1rem;
+        //     color: $white;
+        //     text-align: center;
+        //     text-transform: uppercase;
+        //     /*  將整個文字往右下方旋轉45度  */
+        //     transform: rotate(45deg);
+        //     position: relative;
+        //     /*  緞帶上下的寬窄度  */
+        //     padding: 7px 0;
+        //     left: -4px;
+        //     top: 26px;
+        //     /*  緞帶左右的寬度  */
+        //     width: 150px;
+        //     background-color: $google-red;
+        //     color: $white;
+        //     /*  透過陰影, 讓緞帶斜下方看起來變得更有立體感  */
+        //     box-shadow: -3px 5px 6px -4px $black;
+        //   }
+
+        //   /* 緞帶左上方的小三角形 */
+        //   .tag:before {
+        //     content: "";
+        //     position: absolute;
+        //     left: 0px;
+        //     top: 100%;
+        //     z-index: -1;
+        //     border-left: 6px solid $deep-gray;
+        //     /*  透過將顏色設為透明色, 藉此打造出正三角形  */
+        //     border-right: 6px solid transparent;
+        //     border-bottom: 6px solid transparent;
+        //     border-top: 6px solid $deep-gray;
+        //   }
+
+        //   /* 緞帶右下方的小三角形 */
+        //   .tag:after {
+        //     content: "";
+        //     position: absolute;
+        //     right: 7px;
+        //     top: 100%;
+        //     z-index: -1;
+        //     border-left: 6px solid transparent;
+        //     border-right: 6px solid $deep-gray;
+        //     border-bottom: 6px solid transparent;
+        //     border-top: 6px solid $deep-gray;
+        //   }
+        // }
+
+        a {
+          // 使a元素百分百填滿父元素寬度
+          width: 100%;
+
+          img {
+            // 使img元素百分百填滿父元素寬度
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+          }
+        }
+
+        .heartBtn {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          color: $google-red;
+          background: none;
+          border: none;
+
+          .fa-heart {
+            font-size: $h3-font-size;
+
+            @include tablet {
+              font-size: $h2-font-size;
+            }
+          }
+        }
+
+        .heartBtn:hover,
+        .heartBtn:active {
+          cursor: pointer;
+        }
+
+        .title {
+          text-align: center;
+          padding: 15px;
+          font-size: $h4-font-size;
+          line-height: 1.7rem;
+
+          @include tablet {
+            font-size: $h2-font-size;
+          }
+        }
+
+        .eng-title {
+          font-size: $h6-font-size;
+
+          @include tablet {
+            font-size: $h3-font-size;
+          }
+        }
+
+        .border-line {
+          width: 30%;
+          border-top: 1px solid $silver;
+          margin: 10px 0px;
+        }
+
+        .price {
+          font-weight: bold;
+          font-style: italic;
+          font-size: $h4-font-size;
+
+          @include tablet {
+            font-size: $h2-font-size;
+          }
+
+          .dollar-sign {
+            color: $brown;
+            font-weight: lighter;
+          }
+        }
+
+        .add-cart {
+          // 添加flex排版, 讓加入購物車的旋轉動畫和font awesome圖示能夠並排
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $orange;
+          border: 2px solid $orange;
+          background-color: $main-bg;
+          padding: 2px;
+          margin: 10px;
+          width: 90%;
+          border-radius: 3px;
+
+          @include tablet {
+            font-size: $h2-font-size;
+          }
+
+          &:hover {
+            cursor: pointer;
+            color: $white;
+            border: 2px solid $orange;
+            background-color: $orange;
+          }
+
+          &:active {
+            cursor: pointer;
+            color: $white;
+            border: 2px solid $brown;
+            background-color: $brown;
+          }
+
+          .cart-loading-icon {
+            width: 15px;
+            height: 15px;
+            border: 3px solid transparent;
+            // 設定border上緣的顏色, 藉此當旋轉時才看得出來正在旋轉
+            border-top-color: $white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+
+            @include iPad {
+              border-top-color: $white;
+            }
+
+            
+            @include tablet {
+              width: 25px;
+              height: 25px;
+            }
+          }
+          
+          @keyframes spin {
+            to {
+              transform: rotate(360deg);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff95;
+  /* 背景色可根據你的需求調整 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  /* 確保 loading 在最上層 */
+}
+
+.loading-image {
+  width: 150px;
+  height: auto;
+  // 動畫設定為來回滾動, 旋轉(rotate)從0度開始至360度所需的時間將由此處的秒數進行控制, 因此當秒數越大時, 圖片旋轉速度會越慢
+  animation: roll 2s linear infinite alternate;
+}
+
+// 調整滾動距離和旋轉角度
+@keyframes roll {
+  from {
+    transform: translateX(0) rotate(0deg);
+  }
+
+  to {
+    transform: translateX(100px) rotate(360deg);
+  }
+}

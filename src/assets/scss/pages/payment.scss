@@ -1,0 +1,129 @@
+.cart-tables {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  @include tablet {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cart-list {
+    width: 50%;
+    margin: 0px 10px 30px 30px;
+
+    @include tablet {
+      width: 95%;
+      margin: 0px;
+    }
+
+    .title {
+      font-size: $h2-font-size;
+      color: $brown;
+      font-weight: bold;
+      padding-left: 10px;
+    }
+
+    .order {
+      margin: 20px 10px 0px 10px;
+    }
+
+    tr {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding-bottom: 15px;
+
+      .product-img {
+        width: 20%;
+        object-fit: cover;
+
+        img {
+          height: 100px;
+          object-fit: cover;
+        }
+      }
+
+      .product-name {
+        width: 40%;
+        padding-left: 10px;
+        text-align: start;
+      }
+
+      .product-quantity,
+      .product-price {
+        width: 20%;
+        text-align: end;
+      }
+    }
+
+    .totalPrice {
+      border-top: 1px solid $gray;
+      padding-top: 10px;
+    }
+
+  }
+
+  .payment-userInfo {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0px 30px;
+    padding: 20px 20px;
+    border: 1px solid $silver;
+
+    @include iPad {
+      padding: 20px 10px;
+    }
+
+    @include tablet {
+      width: 95%;
+    }
+
+    .paymentTable,
+    .userInfoTable {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 5px 0px;
+      border-bottom: 1px solid $silver;
+
+      @include tablet {
+        width: 100%;
+      }
+
+      .fields {
+        display: flex;
+        align-items: center;
+        margin: 5px 0px;
+        color: $brown;
+        font-size: $h4-font-size;
+        font-weight: bold;
+      }
+    }
+    .submit-btn {
+      margin: 20px 30px 0px 30px;
+      padding: 10px;
+      width: 100%;
+      background-color: $brown;
+      font-size: $h3-font-size;
+      color: $white;
+      border-radius: 3px;
+      border: none;
+
+      &:hover {
+        cursor: pointer;
+        color: $white;
+        background-color: $orange;
+      }
+
+      &:active {
+        cursor: pointer;
+        color: $white;
+        background-color: $silver;
+      }
+    }
+  }
+}

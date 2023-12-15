@@ -1,0 +1,177 @@
+.register {
+  max-width: 620px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  color: $brown;
+  padding: 20px;
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .logo {
+      padding: 50px 0px 5px 0px;
+    }
+
+    .slogan {
+      padding-bottom: 35px;
+      font-size: $h3-font-size;
+      font-weight: bold;
+    }
+  }
+
+  .register-field {
+    display: flex;
+    flex-direction: column;
+    background: $middle-gray;
+    border: $middle-gray;
+    border-top: 4px solid $orange;
+    box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.16);
+
+    .title {
+      font-size: $h4-font-size;
+      font-weight: bold;
+      padding: 11px 0px 16px 0px;
+    }
+
+    .content {
+      display: flex;
+
+      @include tablet {
+        flex-direction: column;
+      }
+
+      .terms {
+        width: 50%;
+        padding: 0px 20px 0px 15px;
+
+        @include tablet {
+          width: 100%;
+          padding: 15px;
+        }
+
+        span,
+        p {
+          line-height: 1.25rem;
+        }
+
+        span {
+          font-size: $h4-font-size;
+          display: block;
+        }
+      }
+
+      .table {
+        width: 50%;
+        padding: 0px 15px 15px 0px;
+
+        @include tablet {
+          width: 100%;
+          padding: 15px;
+        }
+
+        .email span,
+        .password span {
+          display: block;
+          padding-bottom: 3px;
+        }
+
+        .email input,
+        .password input {
+          width: 100%;
+          font-size: $h3-font-size;
+          border-radius: 3px;
+          border: 1px solid $gray;
+        }
+
+        .email {
+          // 使用相對定位與絕對定位, 將icon挪至input欄位內
+          .input-email {
+            position: relative;
+
+            .mail-icon {
+              position: absolute;
+              top: 17%;
+              left: 2%;
+              color: rgba(61, 17, 0, 0.50);
+            }
+
+            input {
+              margin-bottom: 15px;
+              padding-left: 10%;
+            }
+          }
+
+        }
+
+        .password {
+          .input-password {
+            position: relative;
+
+            .lock-icon1,
+            .lock-icon2 {
+              position: absolute;
+              color: rgba(61, 17, 0, 0.50);
+            }
+
+            .lock-icon1 {
+              top: 8%;
+              left: 2%;
+            }
+
+            .lock-icon2 {
+              top: 56%;
+              left: 2%;
+            }
+
+            .password1 {
+              margin-bottom: 12px;
+            }
+          }
+
+          input {
+            margin-bottom: 15px;
+            padding-left: 10%;
+          }
+
+
+          .had-account {
+            margin-bottom: 30px;
+
+            a {
+              text-decoration: none;
+              color: $orange;
+              font-size: $h6-font-size;
+            }
+          }
+        }
+
+        .register-btn {
+          text-align: right;
+
+          .button-register {
+            background-color: $orange;
+            font-size: $h6-font-size;
+            color: $white;
+            border-radius: 3px;
+            border: none;
+            padding: 6px 28px;
+            width: 45%;
+          }
+
+          .button-register:hover {
+            background-color: $brown;
+            cursor: pointer;
+          }
+
+          .button-register:active {
+            background-color: $white;
+            color: $brown;
+          }
+        }
+      }
+    }
+  }
+}

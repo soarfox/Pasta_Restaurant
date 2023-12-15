@@ -1,0 +1,308 @@
+.link {
+  padding: 90px 40px 0px 40px;
+  display: flex;
+  background-color: $linen;
+
+  li {
+    padding: 0px 5px;
+    font-size: $h3-font-size;
+
+    @include iPad {
+      font-size: $h2-font-size;
+    }
+
+    a {
+      text-decoration: none;
+      color: $brown;
+    }
+  }
+
+  .meal-name {
+    font-weight: bold;
+  }
+}
+
+.detail-info {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  background-color: $linen;
+
+  @include tablet {
+    flex-direction: column;
+  }
+
+  img {
+    width: 40%;
+    object-fit: contain;
+
+    @include tablet {
+      width: 100%;
+    }
+  }
+
+  .info {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    color: $brown;
+    padding: 0px 0px 0px 30px;
+
+    @include tablet {
+      width: 100%;
+      padding: 20px 0px 0px 0px;
+    }
+
+    a {
+      text-decoration: none;
+      margin: 10px 0px;
+    }
+
+    .tag {
+      width: fit-content;
+      padding: 8px;
+      border-radius: 5px;
+      color: $white;
+      background-color: $brown;
+      font-size: $h6-font-size;
+    }
+
+    .title {
+      font-size: $h1-font-size;
+      font-weight: bold;
+      padding: 15px 0px;
+    }
+
+    .description {
+      line-height: 1.7rem;
+      font-size: $h3-font-size;
+      padding-bottom: 30px;
+      border-bottom: 1px solid $silver;
+    }
+
+    .price {
+      font-size: $h2-font-size;
+      padding: 20px 0px;
+      font-weight: bold;
+    }
+
+    .count-addToCart {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: $h2-font-size;
+
+      .count-field {
+        width: 50%;
+        display: flex;
+
+        button {
+          width: 30%;
+          background-color: $brown;
+          border: 2px solid $brown;
+          border-radius: 5px;
+          color: $white;
+          font-size: $h5-font-size;
+          cursor: pointer;
+
+          &:disabled {
+            color: $white;
+            border: 2px solid $silver;
+            background-color: $silver;
+  
+            &:hover, &:active {
+              cursor: not-allowed;
+              color: $white;
+              border: 2px solid $silver;
+              background-color: $silver;
+            }
+          }
+        }
+
+        .count {
+          width: 100%;
+          padding: 3px 10px;
+          margin: 0px 5px;
+          font-size: $h2-font-size;
+          border: 2px solid $brown;
+          border-radius: 5px;
+          text-align: center;
+          color: $brown;
+        }
+      }
+
+      .cartBtn {
+        width: 40%;
+
+        .button-addToCart {
+          width: 100%;
+          padding: 5px 20px;
+          font-weight: bold;
+          font-size: $h5-font-size;
+          background-color: $brown;
+          color: $white;
+          border: 2px solid $brown;
+          border-radius: 5px;
+          cursor: pointer;
+
+          &:disabled {
+            color: $white;
+            border: 2px solid $silver;
+            background-color: $silver;
+  
+            &:hover, &:active {
+              cursor: not-allowed;
+              color: $white;
+              border: 2px solid $silver;
+              background-color: $silver;
+            }
+          }
+        }
+      }
+
+      .minus-sign:hover,
+      .plus-sign:hover,
+      .button-addToCart:hover {
+        background-color: $orange;
+        color: $white;
+        border: 2px solid $orange
+      }
+
+      .minus-sign:active,
+      .plus-sign:active,
+      .button-addToCart:active {
+        background-color: $brown;
+        color: $white;
+        border: 2px solid $brown;
+      }
+    }
+  }
+}
+
+.shopping-guideLine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 0px;
+  color: $brown;
+
+  .title {
+    font-weight: bold;
+    text-align: center;
+    font-size: $h3-font-size;
+    padding-bottom: 40px;
+
+    @include iPad {
+      font-size: $h2-font-size;
+    }
+  }
+
+  .guideLine {
+    li {
+      font-size: $h4-font-size;
+      font-weight: bold;
+      line-height: 1.7rem;
+      color: $brown;
+      padding: 10px 120px;
+
+      @include iPad {
+        font-size: $h3-font-size;
+        padding: 10px 40px;
+      }
+    }
+  }
+}
+
+.same-category {
+  display: flex;
+  flex-direction: column;
+  color: $brown;
+  background-color: $linen;
+  padding: 60px 0px;
+
+  span {
+    font-size: $h3-font-size;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 40px;
+
+    @include iPad {
+      font-size: $h2-font-size;
+    }
+  }
+
+  .meals {
+    display: flex;
+    justify-content: center;
+    padding: 0px 15px;
+
+    @include tablet {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    li {
+      width: 23%;
+      margin: 0px 15px;
+      box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.16);
+
+      @include tablet {
+        width: 80%;
+        margin: 15px 0px;
+      }
+
+      a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: $brown;
+        text-decoration: none;
+        text-align: center;
+
+        img {
+          // 使img元素百分百填滿父元素寬度
+          width: 100%;
+          height: 150px;
+          object-fit: cover;
+        }
+
+
+        .title {
+          font-size: $h4-font-size;
+          line-height: 1.7rem;
+          font-weight: bold;
+          padding-top: 10px;
+
+          @include tablet {
+            font-size: $h2-font-size;
+          }
+        }
+
+        .eng-title {
+          font-size: $h6-font-size;
+
+          @include tablet {
+            font-size: $h3-font-size;
+          }
+        }
+
+        .border-line {
+          width: 30%;
+          border-top: 1px solid $silver;
+          margin: 10px 0px;
+        }
+
+        .price {
+          font-weight: bold;
+          font-style: italic;
+          font-size: $h4-font-size;
+          padding-bottom: 30px;
+
+          @include tablet {
+            font-size: $h3-font-size;
+          }
+        }
+      }
+    }
+  }
+}

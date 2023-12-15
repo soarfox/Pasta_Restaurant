@@ -1,0 +1,497 @@
+// 購物車的樣式
+.cartMenu {
+  position: fixed;
+  top: 0;
+  /* 因為會直接使用V-bind語法綁定此"right值"為JS內data物件內的"cartMenuRight值(值為'-30%')", 故此處right值不論設定多少都不會有效果, 故乾脆設為0 */
+  right: 0;
+  width: 30%;
+  height: 100%;
+  padding: 0px 10px;
+  background-color: $linen;
+  transition: right 0.5s ease;
+  z-index: 4;
+  // 讓購物車內自動出現捲軸
+  overflow-y: auto;
+
+  @include iPad {
+    width: 50%;
+  }
+
+  @include tablet {
+    width: 100%;
+  }
+
+  .title-closeSign {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      padding: 15px;
+      font-size: $h2-font-size;
+      color: $brown;
+      font-weight: bold;
+      margin: 0 auto;
+    }
+
+    .closeSign {
+      font-size: $h2-font-size;
+      color: $brown;
+      font-weight: bold;
+      border: none;
+      background-color: $linen;
+
+      &:hover {
+        cursor: pointer;
+        color: $orange;
+      }
+
+      &:active {
+        cursor: pointer;
+        color: $orange;
+      }
+
+      &:disabled {
+        color: $silver;
+
+        &:hover,
+        &:active {
+          cursor: not-allowed;
+          color: $silver;
+        }
+      }
+    }
+  }
+
+  .table {
+    width: 100%;
+
+    .cart-list {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      color: $brown;
+      border-top: 1px solid $brown;
+  
+      tr {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        border-bottom: 1px solid $brown;
+  
+        td {
+          width: 25%;
+  
+          img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+          }
+  
+          .product-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            // padding: 0px 10px;
+  
+            .productName,
+            .price,
+            .count-field {
+              padding: 10px 0px;
+              font-weight: bold;
+            }
+  
+            .count-field {
+              display: flex;
+  
+              button {
+                background-color: $brown;
+                border: 2px solid $brown;
+                border-radius: 5px;
+                color: $white;
+                font-size: $h5-font-size;
+                cursor: pointer;
+  
+                &:disabled {
+                  color: $deep-gray;
+                  background-color: $silver;
+                  border: 2px solid $silver;
+  
+                  &:hover,
+                  &:active {
+                    cursor: not-allowed;
+                    color: $deep-gray;
+                    border: 2px solid $silver;
+                    background-color: $silver;
+                  }
+                }
+              }
+  
+              .count {
+                width: 100%;
+                padding: 2px 10px;
+                margin: 0px 5px;
+                font-size: $h5-font-size;
+                border: 2px solid $brown;
+                border-radius: 5px;
+                text-align: center;
+                color: $brown;
+              }
+  
+              .minus-sign:hover,
+              .plus-sign:hover {
+                background-color: $orange;
+                color: $white;
+                border: 2px solid $orange
+              }
+  
+              .minus-sign:active,
+              .plus-sign:active {
+                background-color: $brown;
+                color: $white;
+                border: 2px solid $brown;
+              }
+            }
+          }
+  
+          .price-deleteItem {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+  
+            .subTotal {
+              padding-top: 5px;
+              font-weight: bold;
+            }
+  
+            .delete-btn {
+              color: $orange;
+              background-color: $linen;
+              border: 2px solid $orange;
+              width: 100%;
+              border-radius: 3px;
+  
+              &:hover {
+                cursor: pointer;
+                color: $white;
+                border: 2px solid $brown;
+                background-color: $brown;
+              }
+  
+              &:active {
+                cursor: pointer;
+                color: $white;
+                border: 2px solid $orange;
+                background-color: $orange;
+              }
+  
+              &:disabled {
+                color: $silver;
+                border: 2px solid $silver;
+  
+                &:hover,
+                &:active {
+                  cursor: not-allowed;
+                  color: $white;
+                  border: 2px solid $silver;
+                  background-color: $silver;
+                }
+              }
+            }
+          }
+        }
+
+        .product-td {
+          width: 40%;
+        }
+      }
+    }
+  
+    tfoot {
+      .clear-totalPrice {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0px;
+  
+        .clear-btn {
+          color: $orange;
+          background-color: $linen;
+          border: 2px solid $orange;
+          padding: 5px;
+          margin: 10px 20px;
+          width: 100%;
+          border-radius: 3px;
+  
+          &:hover {
+            cursor: pointer;
+            color: $white;
+            border: 2px solid $brown;
+            background-color: $brown;
+          }
+  
+          &:active {
+            cursor: pointer;
+            color: $white;
+            border: 2px solid $orange;
+            background-color: $orange;
+          }
+  
+          &:disabled {
+            color: $silver;
+            border: 2px solid $silver;
+  
+            &:hover,
+            &:active {
+              cursor: not-allowed;
+              color: $white;
+              border: 2px solid $silver;
+              background-color: $silver;
+            }
+          }
+        }
+  
+        .totalPrice {
+          font-size: $h3-font-size;
+          font-weight: bold;
+          color: $brown;
+          margin: 15px 20px;
+        }
+      }
+  
+      .checkout {
+        width: 90%;
+        font-size: $h3-font-size;
+        text-align: center;
+        color: $white;
+        background-color: $brown;
+        border: 2px solid $brown;
+        padding: 10px;
+        margin: 0px 20px;
+        border-radius: 3px;
+  
+        &:hover {
+          cursor: pointer;
+          color: $white;
+          border: 2px solid $orange;
+          background-color: $orange;
+        }
+  
+        &:active {
+          cursor: pointer;
+          color: $white;
+          border: 2px solid $silver;
+          background-color: $silver;
+        }
+  
+        &:disabled {
+          color: $white;
+          border: 2px solid $silver;
+          background-color: $silver;
+  
+          &:hover,
+          &:active {
+            cursor: not-allowed;
+            color: $white;
+            border: 2px solid $silver;
+            background-color: $silver;
+          }
+        }
+  
+        a {
+          text-decoration: none;
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .empty-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $brown;
+    font-size: $h2-font-size;
+    border-top: 1px solid $brown;
+
+    span {
+      padding: 20px;
+    }
+
+    .go-shopping {
+      margin-top: 50px;
+
+      a {
+        background-color: $brown;
+        padding: 20px;
+        border-radius: 5px;
+        color: $white;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* 調整遮罩的顏色和透明度 */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* 確保遮罩位於最上層 */
+  z-index: 3;
+}
+
+.navbar {
+  // 因為設定了position: fixed; 因此在水平方向上的寬度將不再自動撐開至整行, 而只會根據內容的寬度進行調整, 故為了佔滿一整行, 需要撰寫寬度設定width: 100%;
+  position: fixed;
+  // 當設定了寬度之後, 因為它會超出祖先元素.wrap的寬度限制, 直接與視窗寬度對齊, 造成半透明背景超出.wrap範圍, 故在此設定一個最大寬度, 藉此限制其不超出.wrap範圍
+  width: 100%;
+  max-width: 1024px;
+  background-color: rgba(61, 17, 1, 0.85);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $white;
+  // 設定圖層屬性為2以上, 使得其他引用layout.scss的各個分頁的內容將不會疊加在導覽列之上
+  z-index: 2;
+
+  @include tablet {
+    position: fixed;
+    padding: 15px 14px;
+  }
+
+  .title {
+    background-image: url('/src/assets/images/icon/logo_white.svg');
+    background-repeat: no-repeat;
+    width: 255px;
+    height: 40px;
+    text-indent: 101%;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0px 16px;
+
+    @include tablet {
+      margin: 0px;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include tablet {
+      flex-direction: row-reverse;
+    }
+
+    .m-menu {
+      display: none;
+
+      @include tablet {
+        display: block;
+        font-size: $h2-font-size;
+      }
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+
+      @include tablet {
+        // 相對於.navbar在tablet解析度時的相對定位, 這裡設定為絕對定位, 以利產生出漢堡選單的效果
+        position: absolute;
+        // 當漢堡選單尚未打開時, 也就是高度尚未從0px變成400px之前, 先將ul選單內的所有內容都隱藏起來, 故使用overflow: hidden;將多餘的資料隱藏起來
+        overflow: hidden;
+        // 設定一個高度, 以避免漢堡選單遮蔽了導覽列
+        top: 70px;
+        // 寬度設為左右均為0px, 如此可讓選單li項目的寬度完整呈現, 如果li項目寬度設定為100%, 則就能完整呈現出100%
+        left: 0;
+        right: 0;
+        text-align: center;
+        display: block;
+        font-size: $h2-font-size;
+        // 當尚未打開漢堡選單時, 高度設為0px
+        max-height: 0px;
+        // 將高度展開(從0px ~ 400px)的動畫效果設為1秒鐘完成
+        transition: max-height 1s;
+      }
+
+      li {
+        @include tablet {
+          // 將漢堡選單的li項目寬度設定100%
+          width: 100%;
+          background-color: rgba(61, 17, 1, 0.85);
+        }
+
+        .links {
+          display: block;
+          padding: 15px 20px;
+          text-decoration: none;
+          color: $white;
+          font-weight: bold;
+          font-size: $h3-font-size;
+          // background-color: rgba(61, 17, 1, 0.85);
+
+          @include tablet {
+            font-size: $h2-font-size;
+          }
+
+          &:hover,
+          i:hover {
+            background-color: $main-bg;
+            color: $brown;
+          }
+
+          &:active,
+          i:active {
+            background-color: $orange;
+            color: $white;
+          }
+        }
+      }
+    }
+
+    .cart-icon {
+      font-size: $h3-font-size;
+      padding: 15px 40px 15px 10px;
+
+      .cart-count-container {
+        position: relative;
+
+        .cart-count {
+          position: absolute;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 20px;
+          height: 20px;
+          top: -2rem;
+          right: -1rem;
+          background-color: $orange;
+          /* 你可以根據需求更改背景顏色等樣式 */
+          color: $white;
+          /* 文字顏色 */
+          // padding: 0.3rem 0.3rem; /* 可以根據需求調整內邊距 */
+          border-radius: 50%;
+          /* 如果要讓數字呈現圓形，可以添加圓角 */
+          font-size: $h6-font-size;
+        }
+      }
+    }
+  }
+}
+
+// 請留意務必要將下方這段.show-mobile-menu{}樣式移動到.navbar{}之外, 才能正確對應到.menu並顯示漢堡選單
+.show-mobile-menu {
+  .nav-links {
+    .menu {
+      @include tablet {
+        // 將漢堡選單的高度設為400px
+        max-height: 400px;
+      }
+    }
+  }
+}

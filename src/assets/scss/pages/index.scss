@@ -1,0 +1,326 @@
+.banner {
+  background-image: url('/src/assets/images/index/header_desktop.webp');
+  // 務必要設定高度才能讓圖片能夠顯示出來; 且因為只設定高度而不設定寬度, 故不會讓網頁出現x軸
+  height: 420px;
+  // 讓圖片水平及垂直置中
+  background-position: center center;
+  background-size: cover;
+  // 透過flexbox可將內容文字排版於正中央
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+  text-align: center;
+
+  @include tablet {
+    background-image: url('/src/assets/images/index/header_mobile.webp');
+    background-repeat: no-repeat;
+    // background-color: rgba(61, 17, 1, 0.85);
+  }
+
+  .slogan {
+    background-color: rgba(0, 0, 0, 0.35);
+    padding: 20px 32px 26px 32px;
+    line-height: 1.5rem;
+
+    @include tablet {
+      padding: 20px 6px;
+    }
+  }
+
+  h2 {
+    font-size: $h1-font-size;
+    padding-bottom: 15px;
+
+    span {
+      @include tablet {
+        display: block;
+        padding-bottom: 20px;
+      }
+    }
+  }
+
+  h3 span {
+    display: block;
+  }
+
+  .fork-icon {
+    color: $white;
+  }
+}
+
+.why-delicious {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px 0px 30px 0px;
+
+  .text {
+    position: relative;
+    text-align: center;
+    line-height: 1.5rem;
+    font-size: $h2-font-size;
+    color: $brown;
+  }
+
+  .middle-line::before {
+    content: '';
+    position: absolute;
+    // top: 50%將直線的頂部定位到文字的垂直中心, 透過transform: translateY(-50%)將直線自身高度的50%向上移動, 藉此完全對齊兩行文字的中間, 實現垂直居中效果
+    top: 50%;
+    left: 27%;
+    transform: translateY(-50%);
+    width: 12%;
+    border-bottom: 1px solid $gray;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  .middle-line::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 27%;
+    transform: translateY(-50%);
+    width: 12%;
+    border-bottom: 1px solid $gray;
+
+    @include tablet {
+      display: none;
+    }
+  }
+}
+
+.three-features {
+  display: flex;
+  justify-content: space-evenly;
+
+  @include tablet {
+    flex-direction: column;
+  }
+
+  li {
+    width: 33%;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $brown;
+
+    @include iPad {
+      width: 30%;
+      padding: 0px 15px;
+    }
+
+    @include tablet {
+      width: 100%;
+      padding: 30px 60px;
+    }
+
+    img {
+      width: 50%;
+      border-radius: 50%;
+      text-align: center;
+    }
+
+    h4 {
+      text-align: center;
+      font-size: $h2-font-size;
+      padding: 20px 0px 10px 0px;
+    }
+
+    p {
+      font-size: $h4-font-size;
+      line-height: 1.7rem;
+    }
+  }
+}
+
+
+.chef {
+  display: flex;
+  justify-content: center;
+  background-color: $brown;
+  margin: 50px 0px;
+
+  @include tablet {
+    flex-direction: column;
+  }
+
+  .chef-photo {
+    width: 50%;
+
+    @include tablet {
+      width: 100%;
+      padding-left: 0px;
+      // 使用 object-fit: contain; 來保持圖片的原始寬高比例, 這樣圖片將會在保持其完整性的情況下填滿整個容器; 如果想要圖片完全填滿容器, 可以使用 object-fit: cover;。
+      object-fit: contain;
+    }
+  }
+
+  .chef-intro {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: $middle-gray;
+    padding: 60px 30px;
+
+    @include iPad {
+      padding-right: 30px;
+    }
+
+    @include tablet {
+      width: 100%;
+      padding: 30px;
+    }
+
+    .chef-name {
+      font-size: $h2-font-size;
+      line-height: 1.5rem;
+      padding: 20px 0px;
+    }
+  }
+
+  p {
+    font-size: $h3-font-size;
+    line-height: 1.7rem;
+    padding: 10px 0px;
+  }
+}
+
+.responses {
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    font-size: $h2-font-size;
+    color: $brown;
+    text-align: center;
+  }
+}
+
+.customers {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 40px 50px 40px;
+
+  @include iPad {
+    padding: 30px 20px;
+  }
+
+  @include tablet{
+    flex-direction: column;
+  }
+
+  li {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .avatar {
+    // 將.customers分成30%和70%
+    width: 30%;
+    padding-right: 15px;
+    text-align: center;
+
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  .person {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .name {
+    font-size: $h2-font-size;
+    color: $brown;
+    padding: 20px 0px;
+  }
+
+  p {
+    color: $brown;
+    font-size: $h4-font-size;
+    padding-bottom: 15px;
+    line-height: 1.5;
+  }
+
+  span {
+    font-size: $h4-font-size;
+    color: $brown;
+    text-align: right;
+  }
+}
+
+.meal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px 0px;
+  color: $brown;
+  background-color: $linen;
+
+  .title {
+    text-align: center;
+    font-size: $h2-font-size;
+    font-weight: bold;
+    padding-bottom: 50px;
+  }
+
+.products {
+  display: flex;
+  justify-content: space-around;
+
+  @include tablet {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  li {
+    width: 30.3333%;
+    background-color: $white;
+    box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.16);
+
+    @include tablet {
+      width: 90%;
+      margin: 5%;
+    }
+
+    a {
+      text-decoration: none;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .title {
+        font-size: $h2-font-size;
+        text-align: center;
+        font-weight: bold;
+        color: $brown;
+        padding: 15px 0px;
+      }
+
+      .description {
+        font-size: $h4-font-size;
+        color: $brown;
+        padding: 0px 15px 20px 15px;
+        line-height: 1.7rem;
+      }
+    }
+
+    &:hover {
+      transition: transform 0.5s ease-in-out;
+      transform: scale(1.05) translateY(-10px);
+    }
+  }
+}
+}

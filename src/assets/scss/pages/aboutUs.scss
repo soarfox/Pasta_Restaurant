@@ -1,0 +1,180 @@
+.aboutUs-banner {
+  background-image: url('/src/assets/images/aboutUs/banner_desktop.webp');
+  // 務必要設定高度才能讓圖片能夠顯示出來; 且因為只設定高度而不設定寬度, 故不會讓網頁出現x軸
+  height: 260px;
+  // 讓圖片水平及垂直置中
+  background-position: center center;
+  background-size: cover;
+
+  @include tablet {
+    background-image: url('/src/assets/images/aboutUs/banner_mobile.webp');
+    background-repeat: no-repeat;
+    background-color: $black;
+  }
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 30px;
+
+  .title {
+    font-size: $h1-font-size;
+  }
+
+  .rectangle-outside {
+    background-color: $brown;
+    padding: 10px;
+    border-radius: 5px;
+
+    .rectangle {
+      background-color: $brown;
+      font-size: $h3-font-size;
+      color: $white;
+      padding: 60px;
+      border: 1px solid $white;
+
+      p {
+        line-height: 2rem;
+
+        @include iPad {
+          font-size: $h2-font-size;
+          line-height: 2rem;
+        }
+      }
+    }
+  }
+
+}
+
+.three-points {
+  display: flex;
+  flex-direction: column;
+
+  .feature {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+
+    @include tablet {
+      flex-direction: column;
+      padding: 40px 0px;
+    }
+
+    img {
+      width: 55%;
+      padding: 0px 20px;
+
+      @include tablet {
+        width: 90%;
+        padding: 0px;
+      }
+    }
+
+
+    .description {
+      width: 45%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: $brown;
+
+      @include tablet {
+        width: 90%;
+        padding-top: 30px;
+      }
+
+      .title {
+        font-size: $h2-font-size;
+        text-align: center;
+        padding-bottom: 30px;
+
+        @include tablet {
+          padding-bottom: 15px;
+        }
+      }
+
+      p {
+        font-size: $h3-font-size;
+        line-height: 1.7rem;
+      }
+    }
+  }
+
+  .feature-reverse {
+
+    @include tablet {
+      flex-direction: column-reverse;
+    }
+  }
+}
+
+.traffic {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $linen;
+  padding: 30px 40px;
+
+  @include tablet {
+    margin-top: 60px;
+    padding: 30px 0px;
+  }
+
+  .title {
+    font-size: $h2-font-size;
+    text-align: center;
+    font-weight: bold;
+    color: $brown;
+    padding-bottom: 30px;
+  }
+
+  .map-direction {
+    display: flex;
+    justify-content: center;
+
+    @include tablet {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .map {
+      width: 45%;
+
+      @include tablet {
+        width: 90%;
+      }
+    }
+
+    .info {
+      width: 55%;
+      font-size: $h3-font-size;
+
+      @include tablet {
+        width: 100%;
+      }
+
+      li {
+        line-height: 2rem;
+        color: $brown;
+        padding: 15px 20px 15px 30px;
+
+        @include tablet {
+          padding: 15px;
+        }
+
+        a {
+          text-decoration: none;
+          color: $brown;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+
+}
