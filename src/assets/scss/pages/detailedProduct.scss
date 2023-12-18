@@ -8,7 +8,7 @@
     font-size: $h3-font-size;
 
     @include iPad {
-      font-size: $h2-font-size;
+      font-size: $h5-font-size;
     }
 
     a {
@@ -25,7 +25,7 @@
 .detail-info {
   display: flex;
   justify-content: center;
-  padding: 40px;
+  padding: 20px 40px 40px 40px;
   background-color: $linen;
 
   @include tablet {
@@ -60,7 +60,7 @@
 
     .tag {
       width: fit-content;
-      padding: 8px;
+      padding: 10px;
       border-radius: 5px;
       color: $white;
       background-color: $brown;
@@ -84,6 +84,7 @@
       font-size: $h2-font-size;
       padding: 20px 0px;
       font-weight: bold;
+      text-align: right;
     }
 
     .count-addToCart {
@@ -92,9 +93,18 @@
       align-items: center;
       font-size: $h2-font-size;
 
+      @include tablet {
+        flex-direction: column;
+      }
+
       .count-field {
         width: 50%;
         display: flex;
+
+        @include tablet {
+          width: 100%;
+          padding-bottom: 20px;
+        }
 
         button {
           width: 30%;
@@ -134,6 +144,10 @@
       .cartBtn {
         width: 40%;
 
+        @include tablet {
+          width: 100%;
+        }
+
         .button-addToCart {
           width: 100%;
           padding: 5px 20px;
@@ -144,6 +158,10 @@
           border: 2px solid $brown;
           border-radius: 5px;
           cursor: pointer;
+
+          @include tablet {
+            font-size: $h3-font-size;
+          }
 
           &:disabled {
             color: $white;
@@ -208,6 +226,11 @@
       @include iPad {
         font-size: $h3-font-size;
         padding: 10px 40px;
+      }
+
+      a {
+        color: $brown;
+        cursor: pointer;
       }
     }
   }

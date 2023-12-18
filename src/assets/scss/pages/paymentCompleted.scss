@@ -5,6 +5,8 @@
   align-items: center;
   color: $brown;
   font-weight: bold;
+  background-color: $linen;
+  padding: 60px 0px;
 
   .title {
     font-size: $h2-font-size;
@@ -26,9 +28,25 @@
       }
 
       a {
-        text-decoration: none;
         color: $brown;
       }
+    }
+  }
+
+  .goHome {
+    display: block;
+    color: $white;
+    text-align: center;
+    font-size: $h2-font-size;
+    background-color: $brown;
+    border-radius: 5px;
+    margin-top: 30px;
+    padding: 20px 0px;
+    width: 30%;
+    text-decoration: none;
+
+    @include tablet {
+      width: 80%;
     }
   }
 }

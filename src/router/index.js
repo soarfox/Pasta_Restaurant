@@ -57,6 +57,10 @@ const router = createRouter({
           path: 'paymentCompleted',
           component: () => import('@/views/front/PaymentCompletedView.vue'),
         },
+        // {
+        //   path: 'favoritesList',
+        //   component: () => import('@/views/front/FavoritesListView.vue'),
+        // },
       ],
     },
   ],

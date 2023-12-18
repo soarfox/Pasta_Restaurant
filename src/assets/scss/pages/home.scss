@@ -183,6 +183,18 @@
       line-height: 1.5rem;
       padding: 20px 0px;
     }
+
+    .chef-words {
+      li {
+        font-size: $h4-font-size;
+        padding: 20px 0px;
+        line-height: 1.7rem;
+
+        span {
+          font-weight: bold;
+        }
+      }
+    }
   }
 
   p {

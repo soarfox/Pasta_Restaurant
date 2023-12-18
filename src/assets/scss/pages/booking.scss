@@ -92,11 +92,9 @@
         .form-timeOptions {
           padding: 5px;
           margin: 2px;
-          width: calc(25% - 10px);
-
-          @include iPad {
-            width: calc(33% - 10px);
-          }
+          width: 23%;
+          text-align: center;
+          padding: 10px 0px;
         }
 
         //對radio button調整大小, 使其更好點擊

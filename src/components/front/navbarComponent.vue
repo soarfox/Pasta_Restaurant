@@ -1,9 +1,9 @@
 <template>
   <!--將CSS內cartMenu的right屬性, 使其與JS內的data物件內的cartMenuRight(因需同時考量到iPad及手機版網站上能否正確完全隱藏起來, 故將值設定為'-100%', 藉此可完全移除視窗外)以v-bind動態綁定方式綁定在一起, 使CSS內cartMenu的right屬性值成為'-100%' -->
   <div class="cartMenu" :style="{ right: cartMenuRight }">
-    <div class="title-closeSign">
+    <div class="title-closeCart">
       <h2>購物車</h2>
-      <button type="button" class="closeSign" :disabled="loading" @click="closeCart">X</button>
+      <button type="button" class="closeCart" :disabled="loading" @click="closeCart">X</button>
     </div>
     <!-- 當購物車資料確實有存在且購物車資料的長度為空時, 則v-if條件成立, 顯示購物車內沒有品項; 否則就顯示購物車內的各品項資料在畫面上  -->
     <div class="empty-cart" v-if="this.itemsInCart.carts && !itemsInCart.carts.length">
@@ -58,9 +58,9 @@
               </div>
               <div class="totalPrice">${{ totalPrice }}</div>
             </div>
-            <button type="button" class="checkout" :disabled="loading">
-              <router-link to="/checkOrder" @click="closeCart">確認訂單</router-link>
-            </button>
+          </td>
+          <td>
+            <button type="button" name="submit" class="checkout" @click="closeCart('checkout')" :disabled="loading">確認訂單</button>
           </td>
         </tr>
       </tfoot>
@@ -85,6 +85,9 @@
         <li>
           <router-link class="links" to="/product" @click="setCategoryToStore('')">美味餐點</router-link>
         </li>
+        <!-- <li>
+          <router-link class="links" to="/favoritesList" @click="toggleMobileMenu">收藏清單</router-link>
+        </li> -->
       </ul>
       <div class="cart-icon" @click="showCart">
         <font-awesome-icon icon="fa-solid fa-cart-arrow-down" class="shopping-cart-arrow" />
@@ -134,9 +137,12 @@ export default {
         this.cartMenuRight = '-100%';
       }
     },
-    closeCart() {
+    closeCart(action) {
       this.cartMenuRight = '-100%';
       this.showOverlay = false;
+      if (action === 'checkout') {
+        this.$router.push({ path: 'checkOrder' });
+      }
     },
     getCountOfItem(productId) {
       // 取得在購物車內該筆資料的id(即item.id), 而非該筆商品本身的product id (item.product.id)

@@ -10,10 +10,9 @@
     <div class="detail-info">
       <img :src="singleProductData.imageUrl" alt="">
       <div class="info">
-
-        <a href="./product.html">
-          <span class="tag">{{ singleProductData.category }}</span>
-        </a>
+        <router-link to="/product" class="tag" @click="setCategoryToStore(singleProductData.category)">{{
+          singleProductData.category }}
+        </router-link>
 
         <div class="title">{{ singleProductData.title }}</div>
         <div class="description">
@@ -22,12 +21,13 @@
         <div class="count-addToCart">
           <div class="count-field">
             <button type="button" class="minus-sign" :disabled="loading" @click="adjustQuantity(-1)">-</button>
-            <span class="count">{{quantity}}</span>
+            <span class="count">{{ quantity }}</span>
             <!-- <input class="count" type="number" name="meal" id="meal" placeholder="1"> -->
             <button type="button" class="plus-sign" :disabled="loading" @click="adjustQuantity(1)">+</button>
           </div>
           <div class="cartBtn">
-            <button class="button-addToCart" :disabled="loading" name="button-addToCart" type="button" @click="addProductToCart(singleProductData.id, quantity)">
+            <button class="button-addToCart" :disabled="loading" name="button-addToCart" type="button"
+              @click="addProductToCart(singleProductData.id, quantity)">
               加入購物車
             </button>
           </div>
@@ -50,7 +50,8 @@
           <p>4. 若商品缺貨，我們將儘快與您聯繫，您可選擇取消訂單或更換其他義大利麵商品。</p>
         </li>
         <li>
-          <p>5. 若您對商品有任何疑問或需要協助，請隨時與我們聯繫。電話：(02)2200-1234 或是 Email：soarfox@gmail.com</p>
+          <p>5. 若您對商品有任何疑問或需要協助，請隨時與我們聯繫。電話：<a href="tel:+886 2 2200-1234" aria-label="撥打這隻電話號碼">(02)2200-1234</a>或是
+            Email：<a href="mailto:soarfox@gmail.com?subject=有關米諾可義式餐廳網站" aria-label="寫電子郵件給商店業者">soarfox@gmail.com</a></p>
         </li>
       </ul>
     </div>
@@ -59,9 +60,8 @@
       <span>更多美味料理</span>
       <ul class="meals">
         <li v-for="product in getSameCategoryProducts()" :key="product.id">
-          <router-link :to=" '/detailedProduct/' + product.id">
-            <img class="meal-img" :src="product.imageUrl"
-              alt="">
+          <router-link :to="'/detailedProduct/' + product.id">
+            <img class="meal-img" :src="product.imageUrl" alt="">
             <div class="title">{{ product.title }}</div>
             <div class="eng-title">{{ product.category }}</div>
             <div class="border-line"></div>
@@ -101,6 +101,7 @@ export default {
     ...mapActions(productsStore, ['getSingleProduct']),
     ...mapActions(productsStore, ['postItemToCart']),
     ...mapActions(productsStore, ['getItemsFromCart']),
+    ...mapActions(productsStore, ['setProductCategory']),
     getSameCategoryProducts() {
       const { category } = this.singleProductData;
       // 取得與當前單一商品相同分類的商品, 且該些商品的名稱不與當前商品名稱相同, 藉此作為相似商品的內容印出在畫面上, 而日後若有新增更多同分類商品, 則使用.slice(0, 4)代表僅取得前4個商品
@@ -126,6 +127,10 @@ export default {
       this.getItemsFromCart();
       this.quantity = 1;
       this.loading = false;
+    },
+    // 將商品分類設定到pinia store內的變數, 以利在商品頁一打開來之前, 先確認是否該變數已被設定某個分類內容, 如有則顯示對應的分類商品資料; 否則就顯示所有商品資料
+    async setCategoryToStore(category) {
+      await this.setProductCategory(category);
     },
   },
   computed: {

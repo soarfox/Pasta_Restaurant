@@ -4,6 +4,10 @@
   justify-content: space-around;
   align-items: center;
 
+  @include tablet {
+    padding-top: 90px;
+  }
+
   li {
     width: 30%;
     font-size: $h5-font-size;
@@ -148,6 +152,20 @@
         cursor: pointer;
         color: $white;
         background-color: $silver;
+      }
+
+      &:disabled {
+        color: $deep-gray;
+        background-color: $silver;
+        border: 2px solid $silver;
+
+        &:hover,
+        &:active {
+          cursor: not-allowed;
+          color: $deep-gray;
+          border: 2px solid $silver;
+          background-color: $silver;
+        }
       }
     }
 

@@ -36,7 +36,7 @@
           </VField>
           <ErrorMessage class="validation" :name="field.id"></ErrorMessage>
         </div>
-        <input class="button-submit" name="button-submit" type="submit" value="送出訂單">
+        <input class="button-submit" name="button-submit" type="submit" value="送出訂單" :disabled="loading">
       </VForm>
 
     </div>
@@ -52,6 +52,7 @@ import { useToast } from 'vue-toastification';
 export default {
   data() {
     return {
+      loading: false,
       formData: {
         user: {
           name: '',
@@ -83,20 +84,21 @@ export default {
   methods: {
     ...mapActions(productsStore, ['postCartItemsToOrder']),
     async submitForm() {
+      // 當準備跳轉到確認訂單畫面時, 將loading設為true, 藉此改變各按鈕的對應樣式
+      this.loading = true;
       const toast = useToast();
       // 等待資料從購物車加入訂單完成後, 才會往下繼續執行
       await this.postCartItemsToOrder(this.formData);
-
-      // 因Vue需要時間來處理狀態的變化並更新DOM, 為了確保在檢查this.orderResult時取得正確的值, 故使用 await this.$nextTick();來等待Vue完成DOM更新週期, 該this.$nextTick()會取得一個Promise, 該 Promise在Vue完成下一個DOM更新週期後會被解析, 這可確保在非同步操作完成後, Vue已經更新了相關的DOM並可獲得最新的資料
-      // await this.$nextTick();
 
       // 如果pinia store內的訂單資料有值, 則印出它的message訊息
       if (this.orderResult !== undefined) {
         toast.success('訂單已成立！');
         this.$router.push({ path: 'payment' });
       } else {
-        console.log('加入訂單時發生錯誤!');
+        toast.error('加入訂單時發生錯誤!');
       }
+      // 當執行跳轉到確認訂單畫面動作, 依前述判斷式決定跳轉成功或失敗, 將loading設為false, 各按鈕的樣式恢復原樣
+      this.loading = false;
     },
   },
   computed: {

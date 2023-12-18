@@ -33,7 +33,7 @@
           </tr>
           <tr class="fields">
             <td>訂單編號：</td>
-            <td>{{  orderResult.orderId }}</td>
+            <td>{{ orderResult.orderId }}</td>
           </tr>
           <tr class="fields">
             <td>付款狀態：</td>
@@ -62,7 +62,8 @@
             <td>{{ userOrderInfo.message }}</td>
           </tr>
         </table>
-        <button type="button" name="submit" class="submit-btn" @click="payOrder(orderResult.orderId)">確認付款</button>
+        <button type="button" name="submit" class="submit-btn" @click="payOrder(orderResult.orderId)"
+          :disabled="loading">確認付款</button>
       </div>
     </div>
   </main>
@@ -77,12 +78,15 @@ import { useToast } from 'vue-toastification';
 export default {
   data() {
     return {
+      loading: false,
     };
   },
   methods: {
     ...mapActions(productsStore, ['postItemToPay']),
     ...mapActions(productsStore, ['getItemsFromCart']),
     async payOrder(orderId) {
+      // 當準備跳轉到確認付款完成畫面時, 將loading設為true, 藉此改變各按鈕的對應樣式
+      this.loading = true;
       const toast = useToast();
       await this.postItemToPay(orderId);
       // 如果pinia store內的訂單狀態有值, 則印出它的message訊息
@@ -92,8 +96,10 @@ export default {
         this.getItemsFromCart();
         this.$router.push({ path: 'paymentCompleted' });
       } else {
-        console.log('訂單付款時發生錯誤!');
+        toast.error('訂單付款時發生錯誤!');
       }
+      // 當準備跳轉到確認付款完成畫面時, 依前述判斷式決定跳轉成功或失敗, 將loading設為false, 各按鈕的樣式恢復原樣
+      this.loading = false;
     },
   },
   computed: {

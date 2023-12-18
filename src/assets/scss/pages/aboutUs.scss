@@ -33,14 +33,18 @@
       background-color: $brown;
       font-size: $h3-font-size;
       color: $white;
-      padding: 60px;
+      padding: 40px 30px;
       border: 1px solid $white;
+
+      @include tablet {
+        padding: 30px 20px;
+      }
 
       p {
         line-height: 2rem;
 
         @include iPad {
-          font-size: $h2-font-size;
+          font-size: $h3-font-size;
           line-height: 2rem;
         }
       }
@@ -168,7 +172,6 @@
         }
 
         a {
-          text-decoration: none;
           color: $brown;
           cursor: pointer;
         }

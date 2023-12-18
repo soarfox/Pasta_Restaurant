@@ -13,7 +13,7 @@
       <div class="categories">
         <div class="text">
           <font-awesome-icon icon="fa-solid fa-trophy" class="trophy" />
-          美味分類
+          美味餐點
           <!-- <button type="button" @click="updatePrice">更新price</button> -->
         </div>
         <ul class="meal-menu">
@@ -75,7 +75,7 @@ export default {
       addToCartStatus: {},
       categories: [
         {
-          chineseName: '全部',
+          chineseName: '全部分類',
           englishName: '',
         },
         {
@@ -92,7 +92,7 @@ export default {
         },
       ],
       showProducts: {},
-      isRegularStyle: [true, true, false, true, true, false, true, true, false, true, true, false],
+      isRegularStyle: [true, true, true, true, true, true, true, true, true, true, true, true],
       addProductData: {
         product_id: '',
         qty: '',
@@ -135,7 +135,7 @@ export default {
     // 將商品分類設定到pinia store內的變數, 以利在商品頁一打開來之前, 先確認是否該變數已被設定某個分類內容, 如有則顯示對應的分類商品資料; 否則就顯示所有商品資料
     async setCategoryToStore(category) {
       this.selectedCategory = category;
-      console.log(this.selectedCategory);
+      // console.log(this.selectedCategory);
       await this.setProductCategory(category);
       // console.log(`category已修改為${category}`);
     },

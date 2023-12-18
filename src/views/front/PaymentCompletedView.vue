@@ -11,11 +11,11 @@
         感謝您的訂購！
       </div>
       <div class="notice">
-        <span>待餐點製作完成後，將安排外送人員儘速送抵指定的地點。</span>
-        <span>如有任何問題，歡迎聯絡我們：<a href="tel:+886 2 2200-1234" aria-label="撥打餐廳的電話號碼">(02)2200-1234</a>
+        <span>餐點將儘速送抵指定的地點；如有任何問題，歡迎聯絡我們：<a href="tel:+886 2 2200-1234" aria-label="撥打餐廳的電話號碼">(02)2200-1234</a>
         </span>
         <span>祝福您有美好的一天！</span>
       </div>
+      <router-link to="/" class="goHome">返回首頁</router-link>
     </div>
   </main>
 </template>

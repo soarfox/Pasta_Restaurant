@@ -6,9 +6,6 @@
   <main>
     <div class="login">
       <div class="title">
-        <div class="logo">
-          <img src="@/assets/images/icon/logo_brown.svg" alt="深咖啡色的中文字寫著餐廳的名稱--米諾可義式餐廳">
-        </div>
         <span class="slogan">管理者登入</span>
       </div>
       <div class="login-field">
@@ -30,10 +27,20 @@
           </div>
           <div class="buttons">
             <input class="button-cancel" name="button-cancel" type="reset" value="取消">
-            <button class="button-login" name="button-login" type="submit">登入</button>
+            <button class="button-login" name="button-login"  @click="login()">登入</button>
           </div>
         </form>
       </div>
     </div>
   </main>
 </template>
+
+<script>
+export default {
+  methods: {
+    login() {
+      this.$router.push({ path: '/' });
+    },
+  },
+};
+</script>

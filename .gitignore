@@ -9,7 +9,7 @@ lerna-debug.log*
 
 node_modules
 .DS_Store
-# dist
+dist
 dist-ssr
 coverage
 *.local
@@ -26,3 +26,6 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+
+# 忽略 FavoritesListView.vue 檔案
+/src/views/front/FavoritesListView.vue
