@@ -169,7 +169,7 @@
 
           .price-deleteItem {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: center;
 
             .subTotal {
@@ -185,7 +185,7 @@
               border-radius: 3px;
 
               @include iPad {
-                font-size: $h4-font-size;
+                font-size: $h5-font-size;
               }
 
               &:hover {
@@ -424,7 +424,7 @@
         // 當漢堡選單尚未打開時, 也就是高度尚未從0px變成400px之前, 先將ul選單內的所有內容都隱藏起來, 故使用overflow: hidden;將多餘的資料隱藏起來
         overflow: hidden;
         // 設定一個高度, 以避免漢堡選單遮蔽了導覽列
-        top: 70px;
+        top: 80px;
         // 寬度設為左右均為0px, 如此可讓選單li項目的寬度完整呈現, 如果li項目寬度設定為100%, 則就能完整呈現出100%
         left: 0;
         right: 0;
