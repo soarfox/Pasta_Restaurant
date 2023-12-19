@@ -14,7 +14,7 @@
         <div class="text">
           <font-awesome-icon icon="fa-solid fa-trophy" class="trophy" />
           美味餐點
-          <!-- <button type="button" @click="updatePrice">更新price</button> -->
+          <font-awesome-icon icon="fa-solid fa-trophy" class="trophy" />
         </div>
         <ul class="meal-menu">
           <li v-for="item in categories" :key="item.id" :class="{ 'selected': selectedCategory === item.englishName }">
@@ -27,11 +27,11 @@
       <div class="meal-info">
         <ul class="meal-cards">
           <!-- 此處使用從Pinia store內取得的API商品資料且依照商品分類排序 -->
-          <li v-for="(product, index) in showProducts" :key="product.id">
-            <button class="heartBtn">
-              <!-- 將fontAwesome圖示使用V-bind綁定其值, 並且以不同的fontAwesome前綴詞進行圖示風格的切換動作 -->
+          <li v-for="product in showProducts" :key="product.id">
+              <!-- 暫時將<li v-for="(product, index) in showProducts" :key="product.id">的index拿掉, 同時將以下暫時隱藏: 將fontAwesome圖示使用V-bind綁定其值, 並且以不同的fontAwesome前綴詞進行圖示風格的切換動作 -->
+            <!-- <button class="heartBtn">
               <font-awesome-icon :icon="heartIcon[index]" @click="fillLikeIcon(index)" />
-            </button>
+            </button> -->
             <router-link :to="'/detailedProduct/' + product.id">
               <img class="meal-img" :src="product.imageUrl" alt="左邊是一大把的美生菜, 右邊是一個雙層牛肉漢堡, 漢堡裡面夾雜著一片起司與幾片新鮮番茄">
             </router-link>
@@ -92,7 +92,8 @@ export default {
         },
       ],
       showProducts: {},
-      isRegularStyle: [true, true, true, true, true, true, true, true, true, true, true, true],
+      // 隱藏愛心圖示
+      // isRegularStyle: [true, true, true, true, true, true, true, true, true, true, true, true],
       addProductData: {
         product_id: '',
         qty: '',

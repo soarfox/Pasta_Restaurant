@@ -26,18 +26,18 @@
       </div>
       <div>
         <ul class="three-features">
-          <li>
+          <li class="animatedFromLeftToRight" data-index="1">
             <img src="@/assets/images/index/feature_1.webp" alt="一瓶橄欖油, 塞子是軟木塞, 周圍散落著幾個綠色的橄欖果實">
             <h4>義大利原味橄欖油</h4>
             <p>豐富的單不飽和脂肪酸有助於心臟健康，同時具有抗氧化和抗發炎特性，能夠控制血糖，並能增添烹飪的多樣風味。</p>
           </li>
-          <li>
+          <li class="animatedFromLeftToRight" data-index="2">
             <img src="@/assets/images/index/feature_2.webp"
               alt="一位身穿白色廚師袍的廚師, 胸前穿著一件黑色的料理圍裙, 廚師面向左方且雙手帶著白色的手套, 他正專注地以左手拿著平底鍋, 裡頭有一些料理到一半的食材, 他的右手拿著一根湯匙, 正在為食材進行調味">
             <h4>星級專業廚師</h4>
             <p>精通義大利美食的五星級飯店主廚，熟練運用新鮮的地中海食材，巧妙結合傳統與現代，呈現極致風味的義式料理。</p>
           </li>
-          <li>
+          <li class="animatedFromLeftToRight" data-index="3">
             <img src="@/assets/images/index/feature_3.webp"
               alt="黑色的桌面上灑落著麵粉, 中央是一雙有利的手正在揉一大團黃色的麵團, 後方則是兩顆已經打開的雞蛋蛋殼與一張白色小麵皮">
             <h4>揉入情感的用心手作</h4>
@@ -54,13 +54,16 @@
         <ul class="chef-words">
           <li>
             <span>背景介紹：</span>
-            Giovanni出生於義大利小鎮，是義大利烹飪藝術世家的傳人，具備三代傳承的烹飪技藝，透過在佛羅倫斯廚藝學院的學習，接受了嚴格的義式烹飪訓練，且在當地餐廳掌廚的時光，深入掌握了義大利各地食材的烹調方式。</li>
+            Giovanni出生於義大利小鎮，是義大利烹飪藝術世家的傳人，具備三代傳承的烹飪技藝，透過在佛羅倫斯廚藝學院的學習，接受了嚴格的義式烹飪訓練，且在當地餐廳掌廚的時光，深入掌握了義大利各地食材的烹調方式。
+          </li>
           <li>
             <span>料理專長：</span>
-            細膩且用心地烹調方式，為的是將簡單而美味的義大利麵料理呈現在每一位客人面前，並展現廚師對料理的熱愛與對食材的極致追求。</li>
+            細膩且用心地烹調方式，為的是將簡單而美味的義大利麵料理呈現在每一位客人面前，並展現廚師對料理的熱愛與對食材的極致追求。
+          </li>
           <li>
             <span>想說的話：</span>
-            我深信料理是文化的美味融合，也是一種將家鄉風土的呈現的絕佳方式，我們將竭盡所能讓您用餐的時光變成一場與美味料理的對話，致力於將義大利烹飪藝術展現得淋漓盡致，讓每位客人感受到濃郁的義大利風味。</li>
+            我深信料理是文化的美味融合，也是一種將家鄉風土的呈現的絕佳方式，我們將竭盡所能讓您用餐的時光變成一場與美味料理的對話，致力於將義大利烹飪藝術展現得淋漓盡致，讓每位客人感受到濃郁的義大利風味。
+          </li>
         </ul>
       </div>
     </div>
@@ -80,8 +83,7 @@
         </li>
         <li>
           <div class="avatar">
-            <img src="@/assets/images/index/avatar_2.webp" width="67" height="67"
-              alt="一位背面是綠色的草原, 面帶笑容且身穿米白色上衣的年輕女性的頭像">
+            <img src="@/assets/images/index/avatar_2.webp" width="67" height="67" alt="一位背面是綠色的草原, 面帶笑容且身穿米白色上衣的年輕女性的頭像">
           </div>
           <div class="person">
             <div class="name">Sophia</div>
@@ -91,8 +93,7 @@
         </li>
         <li>
           <div class="avatar">
-            <img src="@/assets/images/index/avatar_3.webp" width="67" height="67"
-              alt="一位有著咖啡色的油頭造型且留著落腮鬍, 身穿棕色上衣的年輕男性頭像">
+            <img src="@/assets/images/index/avatar_3.webp" width="67" height="67" alt="一位有著咖啡色的油頭造型且留著落腮鬍, 身穿棕色上衣的年輕男性頭像">
           </div>
           <div class="person">
             <div class="name">Ethan</div>
@@ -109,21 +110,21 @@
         <font-awesome-icon icon="fa-solid fa-chess-queen" class="fork-icon" />
       </div>
       <ul class="products">
-        <li>
+        <li class="animatedFromBottomToTop" data-index="1">
           <router-link to="/product" @click="setCategoryToStore('PestoPasta')">
             <img src="@/assets//images/index/pestoPasta_cover.webp" alt="">
             <div class="title">爽口青醬</div>
             <div class="description">磨碎的羅勒葉散發著天然香氣，與義大利麵的口感交織出一種清新的風味，彷彿帶領著味蕾穿越到了陽光灑落的地中海，每一口都是美好的味覺享受。</div>
-        </router-link>
+          </router-link>
         </li>
-        <li>
+        <li class="animatedFromBottomToTop" data-index="2">
           <router-link to="/product" @click="setCategoryToStore('TomatoPasta')">
             <img src="@/assets//images/index/tomatoPasta_cover.webp" alt="">
             <div class="title">酸甜紅醬</div>
             <div class="description">番茄的自然甜味與微酸相得益彰，加入各種香料的烘托下，每一口都彷彿在意大利的陽光中品味，令人感受到充滿歡愉的義式滋味。</div>
           </router-link>
         </li>
-        <li>
+        <li class="animatedFromBottomToTop" data-index="3">
           <router-link to="/product" @click="setCategoryToStore('CreamyPasta')">
             <img src="@/assets//images/index/creamyPasta_cover.webp" alt="">
             <div class="title">香醇白醬</div>
@@ -147,6 +148,34 @@ export default {
     async setCategoryToStore(category) {
       await this.setProductCategory(category);
     },
+  },
+  mounted() {
+    // 對每個animated class的元素進行操作, 準備套用fade in效果
+    const handleScrollAnimation = (elements, offset, animationClass) => {
+      elements.forEach((item) => {
+        const animationItemsTop = item.getBoundingClientRect().top;
+        const itemIndex = item.dataset.index;
+        // 搭配各元素自行設定的index值
+        const delayTime = itemIndex * 500;
+        // 取得瀏覽器視窗的內部高度, 也就是可見內容的高度, 其不包括瀏覽器的工具列、標籤列等, 它會返回一個數值, 代表當前瀏覽器視窗的高度, 以px為單位
+        const windowsHeight = window.innerHeight;
+
+        if (windowsHeight >= animationItemsTop + offset) {
+          setTimeout(() => {
+            item.classList.add(animationClass);
+          }, delayTime);
+        }
+      });
+    };
+
+    // 監聽滾動事件, 用來為指定的事件(scroll事件)附加一個事件處理函式, 當該事件發生時就會執行這個函式, 因此根據當前滾動的視窗高度與補償值(offset)來顯示淡入動畫效果
+    window.addEventListener('scroll', () => {
+      const animatedFromLeftToRight = document.querySelectorAll('.animatedFromLeftToRight');
+      const animatedFromBottomToTop = document.querySelectorAll('.animatedFromBottomToTop');
+
+      handleScrollAnimation(animatedFromLeftToRight, 0, 'fadeInFromLeftToRight');
+      handleScrollAnimation(animatedFromBottomToTop, 0, 'fadeInFromBottomToTop');
+    });
   },
 };
 </script>

@@ -17,30 +17,30 @@
       </div>
     </div>
     <div class="three-points">
-      <div class="feature">
+      <div class="feature animatedFromLeftToRight">
         <img src="@/assets/images/aboutUs/earth_friendly.webp" alt="">
         <div class="description">
           <div class="title">大地友善</div>
           <p>
-            我們致力於選用當地新鮮、有機的食材，以降低環境影響並支持當地農業。我們嚴選經過認證的食材，減少對生態系統的負擔，並積極參與可持續發展的實踐。這不僅是我們的承諾，更是對自然的愛護，期許透過每一道美味的義大利料理，帶給您滿滿的大地溫暖。
+            我們致力於選用當地新鮮、有機的食材，以降低環境影響並以實際採買行動來支持當地農業；選擇經過認證的食材，減少對環境生態的負擔，這不僅是我們對顧客與農民們的承諾，更是對大自然的愛護與感謝，期許透過所製作的每一道料理，能帶給您滿滿的大地溫暖與愛。
           </p>
         </div>
       </div>
-      <div class="feature feature-reverse">
+      <div class="feature feature-reverse animatedFromRightToLeft">
         <div class="description">
           <div class="title">健康原味</div>
           <p>
-            我們堅信最好的食材是自然原味，因此所有的料理都保持了最原始的風味，不添加過多的調味，以保留食材的天然營養。我們專注於創造美味的義大利料理，結合新鮮的蔬果、高品質的橄欖油和香料，呈現最純粹、健康的美味，讓您品味到每一口都是對味蕾的愉悅。
+            我們堅信最美味的食材就是大自然賦予食物的原味，因此餐廳裡所有的料理都用最少加工的方式，盡可能留住食物的甘甜鮮美與天然營養，讓您吃得安心又健康，並且為了創造出更美味的義大利風味料理，我們結合當令時蔬與高品質的橄欖油，呈現最純粹且健康的美味，讓您每一口都感受到味蕾的喜悅。
           </p>
         </div>
         <img class="img" src="@/assets/images/aboutUs/handmade.webp" alt="">
       </div>
-      <div class="feature">
+      <div class="feature animatedFromLeftToRight">
         <img src="@/assets/images/aboutUs/nice_date.webp" alt="">
         <div class="description">
           <div class="title">美味有約</div>
           <p>
-            我們不僅提供精緻的義大利料理，更營造出溫馨愜意的用餐環境，讓每一位賓客都能享受到美好的用餐體驗。我們深信美味不僅僅來自食材和廚藝，更源自於與摯愛、家人或朋友共度的美好時光，來到這裡，每一頓餐食都是一場美味的約會，將美好的時光和難以忘懷的滋味完美結合。
+            我們提供的不僅是值得您細膩品嚐的義大利風味料理，為讓您享受在餐廳裡的每一刻，我們用心營造溫馨且愜意的用餐環境，讓您每一次來訪，都能留下美好的深刻體驗，因為我們深信美味不僅僅是來自於食材與廚藝，更源自於您與摯愛的家人或朋友一起共度的美好時光。
           </p>
         </div>
       </div>
@@ -61,7 +61,7 @@
             </li>
             <li>大眾運輸工具：可以搭乘火車/捷運/高鐵直達板橋車站，且板橋車站和板橋客運轉運站相鄰，亦可搭乘客運在板橋客運轉運站下車，步行3分鐘即可抵達板橋車站。</li>
             <li>自行開車：建議使用導航系統或地圖應用程式導航至「板橋車站」，以獲得最即時的路況和導航資訊，車站周圍有付費停車場可供停車。</li>
-            <li>訂位專線：<a href="tel:+886 2 2200-1234" aria-label="撥打這隻電話號碼">(02)2200-1234</a></li>
+            <li>訂位專線：<a href="tel:+886 2 2200-1234" aria-label="撥打這隻電話號碼給商店業者">(02)2200-1234</a></li>
             <li>與我們聯繫：<a href="mailto:soarfox@gmail.com?subject=有關米諾可義式餐廳網站" aria-label="寫電子郵件給商店業者">soarfox@gmail.com</a>
             </li>
           </ul>
@@ -70,3 +70,34 @@
     </div>
   </main>
 </template>
+
+<script>
+export default {
+  mounted() {
+    // 對每個animated class的元素進行操作, 準備套用fade in效果
+    const handleScrollAnimation = (elements, offset, animationClass) => {
+      elements.forEach((item) => {
+        const animationItemsTop = item.getBoundingClientRect().top;
+
+        // 取得瀏覽器視窗的內部高度, 也就是可見內容的高度, 其不包括瀏覽器的工具列、標籤列等, 它會返回一個數值, 代表當前瀏覽器視窗的高度, 以px為單位
+        const windowsHeight = window.innerHeight;
+
+        if (windowsHeight >= animationItemsTop + offset) {
+          setTimeout(() => {
+            item.classList.add(animationClass);
+          }, 500);
+        }
+      });
+    };
+
+    // 監聽滾動事件, 用來為指定的事件(scroll事件)附加一個事件處理函式, 當該事件發生時就會執行這個函式, 因此根據當前滾動的視窗高度與補償值(offset)來顯示淡入動畫效果
+    window.addEventListener('scroll', () => {
+      const animatedFromLeftToRight = document.querySelectorAll('.animatedFromLeftToRight');
+      const animatedFromRightToLeft = document.querySelectorAll('.animatedFromRightToLeft');
+
+      handleScrollAnimation(animatedFromLeftToRight, 100, 'fadeInFromLeftToRight');
+      handleScrollAnimation(animatedFromRightToLeft, 100, 'fadeInFromRightToLeft');
+    });
+  },
+};
+</script>

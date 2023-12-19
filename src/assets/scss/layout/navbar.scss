@@ -37,8 +37,8 @@
 
     .closeCart {
       position: absolute;
-      top: 15px;
-      right: 10px;
+      top: 25%;
+      right: 2%;
       font-size: $h2-font-size;
       color: $brown;
       font-weight: bold;
@@ -79,12 +79,12 @@
 
       tr {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         text-align: center;
         border-bottom: 1px solid $brown;
 
-        td {
+        .img-td {
           width: 25%;
 
           img {
@@ -92,6 +92,10 @@
             height: 100px;
             object-fit: cover;
           }
+        }
+
+        .product-td {
+          width: 40%;
 
           .product-content {
             display: flex;
@@ -158,6 +162,10 @@
               }
             }
           }
+        }
+
+        .total-del-td {
+          width: 30%;
 
           .price-deleteItem {
             display: flex;
@@ -177,7 +185,7 @@
               border-radius: 3px;
 
               @include iPad {
-                font-size: $h3-font-size;
+                font-size: $h4-font-size;
               }
 
               &:hover {
@@ -209,10 +217,6 @@
             }
           }
         }
-
-        .product-td {
-          width: 40%;
-        }
       }
     }
 
@@ -238,7 +242,7 @@
             border-radius: 3px;
 
             @include iPad {
-              font-size: $h3-font-size;
+              font-size: $h4-font-size;
             }
 
             &:hover {

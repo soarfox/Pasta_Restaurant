@@ -137,8 +137,22 @@
       line-height: 1.7rem;
     }
   }
-}
 
+  // 淡入動畫效果, 需搭配JS語法一起使用
+  .animatedFromLeftToRight {
+    // 將透明度設為0, 而非使用display: none; 因為display: none;會讓該元素所佔用的空間消失, 而透明度設為0則會保留元素所佔用的空間
+    opacity: 0;
+    // 將位移的位置從-100px開始逐漸恢復至0, 就有從左方往右滑出來的效果
+    transform: translateX(-100px);
+    transition: all 1.5s;
+  }
+
+  .fadeInFromLeftToRight {
+    // 將透明度設為1 (代表不透明)
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
 .chef {
   display: flex;
@@ -224,7 +238,7 @@
     padding: 30px 20px;
   }
 
-  @include tablet{
+  @include tablet {
     flex-direction: column;
   }
 
@@ -285,54 +299,71 @@
     padding-bottom: 50px;
   }
 
-.products {
-  display: flex;
-  justify-content: space-around;
-
-  @include tablet {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  li {
-    width: 30.3333%;
-    background-color: $white;
-    box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.16);
+  .products {
+    display: flex;
+    justify-content: space-around;
 
     @include tablet {
-      width: 90%;
-      margin: 5%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
-    a {
-      text-decoration: none;
+    li {
+      width: 30.3333%;
+      background-color: $white;
+      box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.16);
 
-      img {
-        width: 100%;
-        object-fit: cover;
+      @include tablet {
+        width: 90%;
+        margin: 5%;
       }
 
-      .title {
-        font-size: $h2-font-size;
-        text-align: center;
-        font-weight: bold;
-        color: $brown;
-        padding: 15px 0px;
+      a {
+        text-decoration: none;
+
+        img {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+        }
+
+        .title {
+          font-size: $h2-font-size;
+          text-align: center;
+          font-weight: bold;
+          color: $brown;
+          padding: 15px 0px;
+        }
+
+        .description {
+          font-size: $h4-font-size;
+          color: $brown;
+          padding: 0px 15px 20px 15px;
+          line-height: 1.7rem;
+        }
       }
 
-      .description {
-        font-size: $h4-font-size;
-        color: $brown;
-        padding: 0px 15px 20px 15px;
-        line-height: 1.7rem;
+      &:hover {
+        transition: transform 0.2s ease-in;
+        transform: translateY(-40px);
+        box-shadow: 10px 5px 5px 2px rgba(0, 0, 0, 0.16);
       }
     }
 
-    &:hover {
-      transition: transform 0.5s ease-in-out;
-      transform: scale(1.05) translateY(-10px);
+    // 淡入動畫效果, 需搭配JS語法一起使用
+    .animatedFromBottomToTop {
+      // 將透明度設為0, 而非使用display: none; 因為display: none;會讓該元素所佔用的空間消失, 而透明度設為0則會保留元素所佔用的空間
+      opacity: 0;
+      // 將位移的位置從-100px開始逐漸恢復至0, 就有從下方往上滑出來的效果
+      transform: translateY(-100px);
+      transition: all 2.5s;
+    }
+
+    .fadeInFromBottomToTop {
+      // 將透明度設為1 (代表不透明)
+      opacity: 1;
+      transform: translateY(0);
     }
   }
-}
 }

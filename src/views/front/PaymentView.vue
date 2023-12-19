@@ -37,7 +37,7 @@
           </tr>
           <tr class="fields">
             <td>付款狀態：</td>
-            <td>尚未付款，共{{ orderResult.total }}元</td>
+            <td class="payment-status">尚未付款，共{{ orderResult.total }}元</td>
           </tr>
         </table>
         <table class="userInfoTable">

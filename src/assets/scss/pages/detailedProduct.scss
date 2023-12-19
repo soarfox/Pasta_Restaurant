@@ -1,11 +1,12 @@
 .link {
-  padding: 90px 40px 0px 40px;
+  padding: 90px 20px 0px 30px;
   display: flex;
   background-color: $linen;
 
   li {
-    padding: 0px 5px;
+    padding: 0px 2px;
     font-size: $h3-font-size;
+    color: $brown;
 
     @include iPad {
       font-size: $h5-font-size;
@@ -68,7 +69,7 @@
     }
 
     .title {
-      font-size: $h1-font-size;
+      font-size: $h2-font-size;
       font-weight: bold;
       padding: 15px 0px;
     }
@@ -103,7 +104,7 @@
 
         @include tablet {
           width: 100%;
-          padding-bottom: 20px;
+          padding-bottom: 30px;
         }
 
         button {
@@ -131,7 +132,7 @@
 
         .count {
           width: 100%;
-          padding: 3px 10px;
+          padding: 10px;
           margin: 0px 5px;
           font-size: $h2-font-size;
           border: 2px solid $brown;
@@ -150,9 +151,9 @@
 
         .button-addToCart {
           width: 100%;
-          padding: 5px 20px;
+          padding: 10px 20px;
           font-weight: bold;
-          font-size: $h5-font-size;
+          font-size: $h3-font-size;
           background-color: $brown;
           color: $white;
           border: 2px solid $brown;
@@ -207,7 +208,7 @@
   .title {
     font-weight: bold;
     text-align: center;
-    font-size: $h3-font-size;
+    font-size: $h2-font-size;
     padding-bottom: 40px;
 
     @include iPad {

@@ -18,7 +18,7 @@
     <table class="table" v-else>
       <tbody class="cart-list">
         <tr v-for="item in itemsInCart.carts" :key="item.id">
-          <td>
+          <td class="img-td">
             <img :src="item.product.imageUrl" alt="">
           </td>
           <td class="product-td">
@@ -34,7 +34,7 @@
               </div>
             </div>
           </td>
-          <td>
+          <td class="total-del-td">
             <div class="price-deleteItem">
               <div class="subTotal">${{ item.final_total }}</div>
               <div class="deleteItem">

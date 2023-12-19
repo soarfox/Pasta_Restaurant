@@ -17,7 +17,10 @@
         <div class="title">{{ singleProductData.title }}</div>
         <div class="description">
           {{ singleProductData.description }}</div>
-        <div class="price">售價：${{ singleProductData.price }}/份</div>
+        <div class="price">售價：
+          <font-awesome-icon icon="fa-solid fa-dollar-sign" />
+          {{ singleProductData.price }}/份
+        </div>
         <div class="count-addToCart">
           <div class="count-field">
             <button type="button" class="minus-sign" :disabled="loading" @click="adjustQuantity(-1)">-</button>
@@ -44,20 +47,16 @@
           <p>2. 餐點均屬出餐當天即時現作，且因衛生與安全考量，餐點一經確認出單則概不退換貨，並請於收到餐點後當餐食用，以確保口感的新鮮度與衛生。</p>
         </li>
         <li>
-          <p>3. 請注意，網站商品價格、庫存等資訊可能不定時更新，因此下單時的價格和庫存可能已經發生變化，若有疑問，請隨時與我們聯繫。</p>
+          <p>3. 若商品因原物料而短缺而暫時無法販售，我們將主動儘快與您聯繫，屆時您可選擇取消訂單或更換其他商品。</p>
         </li>
         <li>
-          <p>4. 若商品缺貨，我們將儘快與您聯繫，您可選擇取消訂單或更換其他義大利麵商品。</p>
-        </li>
-        <li>
-          <p>5. 若您對商品有任何疑問或需要協助，請隨時與我們聯繫。電話：<a href="tel:+886 2 2200-1234" aria-label="撥打這隻電話號碼">(02)2200-1234</a>或是
-            Email：<a href="mailto:soarfox@gmail.com?subject=有關米諾可義式餐廳網站" aria-label="寫電子郵件給商店業者">soarfox@gmail.com</a></p>
+          <p>4. 若您對商品有任何疑問或需要協助，請隨時與我們聯繫，電話：<a href="tel:+886 2 2200-1234" aria-label="撥打這隻電話號碼給商店業者">(02)2200-1234</a>或是Email：<a href="mailto:soarfox@gmail.com?subject=有關米諾可義式餐廳網站" aria-label="寫電子郵件給商店業者">soarfox@gmail.com</a></p>
         </li>
       </ul>
     </div>
 
     <div class="same-category">
-      <span>更多美味料理</span>
+      <span>品嚐更多美味料理</span>
       <ul class="meals">
         <li v-for="product in getSameCategoryProducts()" :key="product.id">
           <router-link :to="'/detailedProduct/' + product.id">
@@ -66,9 +65,8 @@
             <div class="eng-title">{{ product.category }}</div>
             <div class="border-line"></div>
             <div class="price">
-              <i class="fa-solid fa-dollar-sign dollar-sign">
-              </i>
-              ${{ product.price }}
+              <font-awesome-icon icon="fa-solid fa-dollar-sign" />
+              {{ product.price }}
             </div>
           </router-link>
         </li>

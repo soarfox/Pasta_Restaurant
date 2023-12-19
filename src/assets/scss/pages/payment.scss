@@ -101,6 +101,10 @@
         color: $brown;
         font-size: $h4-font-size;
         font-weight: bold;
+
+        .payment-status {
+          color: $google-red;
+        }
       }
     }
     .submit-btn {

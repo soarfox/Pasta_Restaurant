@@ -56,6 +56,8 @@
 .three-points {
   display: flex;
   flex-direction: column;
+  // 為了使網頁不因從左/右側滑入的動畫而造成網頁底部出現X軸, 請在內含有動畫的'外容器'加上這一項
+  overflow-x: hidden;
 
   .feature {
     display: flex;
@@ -96,6 +98,7 @@
         font-size: $h2-font-size;
         text-align: center;
         padding-bottom: 30px;
+        font-weight: bold;
 
         @include tablet {
           padding-bottom: 15px;
@@ -114,6 +117,36 @@
     @include tablet {
       flex-direction: column-reverse;
     }
+  }
+
+  // 淡入動畫效果, 需搭配JS語法一起使用
+  .animatedFromLeftToRight {
+    // 將透明度設為0, 而非使用display: none; 因為display: none;會讓該元素所佔用的空間消失, 而透明度設為0則會保留元素所佔用的空間
+    opacity: 0;
+    // 將位移的位置從-100px開始逐漸恢復至0, 就有從左方往右滑出來的效果
+    transform: translateX(-100px);
+    transition: all 2.5s;
+  }
+
+  .fadeInFromLeftToRight {
+    // 將透明度設為1 (代表不透明)
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  // 淡入動畫效果, 需搭配JS語法一起使用
+  .animatedFromRightToLeft {
+    // 將透明度設為0, 而非使用display: none; 因為display: none;會讓該元素所佔用的空間消失, 而透明度設為0則會保留元素所佔用的空間
+    opacity: 0;
+    // 將位移的位置從100px開始逐漸恢復至0, 就有從右方往左滑出來的效果
+    transform: translateX(100px);
+    transition: all 2.5s;
+  }
+
+  .fadeInFromRightToLeft {
+    // 將透明度設為1 (代表不透明)
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
