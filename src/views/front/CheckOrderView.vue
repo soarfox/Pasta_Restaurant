@@ -93,7 +93,8 @@ export default {
       // 如果pinia store內的訂單資料有值, 則印出它的message訊息
       if (this.orderResult !== undefined) {
         toast.success('訂單已成立！');
-        this.$router.push({ path: 'payment' });
+        // 使用絕對路徑, 以/開頭的路徑
+        this.$router.push({ path: '/payment' });
       } else {
         toast.error('加入訂單時發生錯誤!');
       }

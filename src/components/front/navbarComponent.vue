@@ -66,6 +66,7 @@
       </tfoot>
     </table>
   </div>
+  <!-- 在電腦版時, 若購物車被點擊時, 則將全畫面都加上一個半透明遮罩, 以利讓使用者聚焦在購物車內容 -->
   <div class="overlay" v-if="showOverlay"></div>
   <!-- 依據showMobileMenu的布林值來決定是否為'navbar'加上這個CSS樣式'show-mobile-menu', 如果布林值為true, 則會加上該樣式; 反之, 則不會加上該樣式; 這種方式稱為"條件式CSS"或"動態CSS", 可根據元件的狀態或資料變化, 動態地添加或刪除CSS樣式名稱, 藉此控制元素的樣式 -->
   <div class="navbar" :class="{ 'show-mobile-menu': showMobileMenu }">
@@ -74,7 +75,7 @@
       <h1 class="title" aria-label="白色的中文字寫著餐廳的名字--米諾可義式餐廳">米諾可義式餐廳</h1>
     </router-link>
     <div class="nav-links">
-      <font-awesome-icon icon="fa-solid fa-bars" class="m-menu" @click="toggleMobileMenu" />
+      <font-awesome-icon icon="fa-solid fa-bars" class="m-menu" @click="toggleMobileMenu()" />
       <ul class="menu">
         <li>
           <router-link class="links" to="/aboutUs" @click="toggleMobileMenu">關於我們</router-link>
@@ -89,7 +90,7 @@
           <router-link class="links" to="/favoritesList" @click="toggleMobileMenu">收藏清單</router-link>
         </li> -->
       </ul>
-      <div class="cart-icon" @click="showCart">
+      <div class="cart-icon" @click="showCart()">
         <font-awesome-icon icon="fa-solid fa-cart-arrow-down" class="shopping-cart-arrow" />
         <div class="cart-count-container">
           <div class="cart-count" v-if="itemsInCartLoaded">{{ itemsInCart.carts.length }}</div>
@@ -130,6 +131,9 @@ export default {
       this.showMobileMenu = !this.showMobileMenu;
     },
     showCart() {
+      // 當購物車圖示被點擊時, 一律將漢堡選單的顯示狀態改為false, 藉此確保漢堡選單必定被關閉
+      this.showMobileMenu = false;
+
       if (this.cartMenuRight !== '0%') {
         this.cartMenuRight = '0%';
         this.showOverlay = true;
@@ -141,7 +145,8 @@ export default {
       this.cartMenuRight = '-100%';
       this.showOverlay = false;
       if (action === 'checkout') {
-        this.$router.push({ path: 'checkOrder' });
+        // 此處需使用絕對路徑, 以/根目錄開頭的路徑('/checkOrder')才能成功跳轉到該頁; 若使用相對路徑('checkOrder')則會無法成功跳轉, 因為找不到同一層路徑中有checkOrder這個元件, 故會跳轉失敗
+        this.$router.push({ path: '/checkOrder' });
       }
     },
     getCountOfItem(productId) {
@@ -160,6 +165,12 @@ export default {
         // 將現有數量加上+1/-1之後, 呼叫修改購物車商品數量API的方法
         this.updateProductData.product_id = productId;
         this.updateProductData.qty = countOfItem + number;
+
+        // 如果購物車內的商品數量被調整之後, 其數量成為0, 則一律不做任何反應
+        if (countOfItem + number === 0) {
+          return;
+        }
+
         // 使用await關鍵字, 當購物車商品數量修改完成後, 才執行更新購物車資料的方法; 修改商品數量時, 要分別附上購物車內該品項id(在此為itemId)以及該商品自身的id(在此為product_id)
         await this.putItemsToCart(itemId, this.updateProductData);
         this.getItemsFromCart();

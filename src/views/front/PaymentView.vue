@@ -94,7 +94,8 @@ export default {
         toast.success('付款成功！');
         // 付款完成後, 重新抓取購物車的內容, 使購物車的內容被結清乾淨
         this.getItemsFromCart();
-        this.$router.push({ path: 'paymentCompleted' });
+        // 使用絕對路徑, 以/開頭的路徑
+        this.$router.push({ path: '/paymentCompleted' });
       } else {
         toast.error('訂單付款時發生錯誤!');
       }

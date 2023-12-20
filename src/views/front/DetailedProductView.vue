@@ -50,7 +50,9 @@
           <p>3. 若商品因原物料而短缺而暫時無法販售，我們將主動儘快與您聯繫，屆時您可選擇取消訂單或更換其他商品。</p>
         </li>
         <li>
-          <p>4. 若您對商品有任何疑問或需要協助，請隨時與我們聯繫，電話：<a href="tel:+886 2 2200-1234" aria-label="撥打這隻電話號碼給商店業者">(02)2200-1234</a>或是Email：<a href="mailto:soarfox@gmail.com?subject=有關米諾可義式餐廳網站" aria-label="寫電子郵件給商店業者">soarfox@gmail.com</a></p>
+          <p>4. 若您對商品有任何疑問或需要協助，請隨時與我們聯繫，電話：<a href="tel:+886 2 2200-1234"
+              aria-label="撥打這隻電話號碼給商店業者">(02)2200-1234</a>或是Email：<a href="mailto:soarfox@gmail.com?subject=有關米諾可義式餐廳網站"
+              aria-label="寫電子郵件給商店業者">soarfox@gmail.com</a></p>
         </li>
       </ul>
     </div>
@@ -152,5 +154,10 @@ export default {
       },
     },
   },
+  // 透過下方幫助找出從本頁按了購物車內的'確認訂單'按鈕卻沒有成功跳轉到填寫訂單頁的問題, 已於navbarComponent.vue內改採絕對路徑, 即以/開頭的路徑, 如this.$router.push({ path: '/checkOrder' });, 如此就能夠成功跳轉到填寫訂單頁
+  // beforeRouteLeave(to, from, next) {
+  //   console.log('Leaving DetailedProductView, navigating to', to);
+  //   next();
+  // },
 };
 </script>
