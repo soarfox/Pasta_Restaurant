@@ -324,36 +324,3 @@
     }
   }
 }
-
-.loading-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #ffffff95;
-  /* 背景色可根據你的需求調整 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  /* 確保 loading 在最上層 */
-}
-
-.loading-image {
-  width: 150px;
-  height: auto;
-  // 動畫設定為來回滾動, 旋轉(rotate)從0度開始至360度所需的時間將由此處的秒數進行控制, 因此當秒數越大時, 圖片旋轉速度會越慢
-  animation: roll 2s linear infinite alternate;
-}
-
-// 調整滾動距離和旋轉角度
-@keyframes roll {
-  from {
-    transform: translateX(0) rotate(0deg);
-  }
-
-  to {
-    transform: translateX(100px) rotate(360deg);
-  }
-}

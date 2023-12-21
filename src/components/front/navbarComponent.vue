@@ -60,7 +60,8 @@
             </div>
           </td>
           <td>
-            <button type="button" name="submit" class="checkout" @click="closeCart('checkout')" :disabled="loading">確認訂單</button>
+            <button type="button" name="submit" class="checkout" @click="closeCart('checkout')"
+              :disabled="loading">確認訂單</button>
           </td>
         </tr>
       </tfoot>
